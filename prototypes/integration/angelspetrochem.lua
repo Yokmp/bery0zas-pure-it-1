@@ -1,6 +1,6 @@
 bery0zas.pure_it.integration.angelspetrochem = {}
 
-if not bery0zas.pure_it.triggers["leave-halite"] then	
+if not bery0zas.pure_it.triggers["leave-halite"] then
 	bery0zas.functions.remove_technology_recipe("bery0zas-air-purification-3", "bery0zas-iron-halite-extraction")
 	bery0zas.functions.remove_technology_recipe("bery0zas-air-purification-3", "bery0zas-copper-halite-extraction")
 	bery0zas.functions.remove_recipe("bery0zas-iron-halite-extraction")
@@ -70,6 +70,7 @@ data:extend({
 		max_temperature = 100,
 		base_color = { r = 0.62, g = 0.7, b = 0.95 },
 		flow_color = { r = 0.62, g = 0.7, b = 0.95 },
+		--create_viscous_liquid_fluid_icon(molecule_icon, tints)
 		icons = angelsmods.functions.create_viscous_liquid_fluid_icon(nil, {{094, 114, 174}, {198, 011, 011}}),
 		auto_barrel = false
 	},
@@ -88,6 +89,7 @@ data:extend({
 			{ type = "fluid", name = "water-purified", amount = 20 },
 			{ type = "fluid", name = "gas-oxygen", amount = 200 }
 		},
+		--create_liquid_recipe_icon(bot_molecules_icon, tints, top_molecules_icon)
 		icons = angelsmods.functions.create_liquid_recipe_icon(nil, {{249, 013, 013}, {094, 114, 174}, {088, 101, 155}}),
 		subgroup = "liquifying",
 		results = {{ type = "fluid", name = "bery0zas-oxygen-solution", amount = 20 }},
@@ -103,7 +105,7 @@ data:extend({
 		ingredients =
 		{
 			{ type = "fluid", name = "water-purified", amount = 50 },
-			{ name = "solid-sodium-hydroxide", amount = 1 }
+			{ type = "item", name = "solid-sodium-hydroxide", amount = 1 }
 		},
 		icons = angelsmods.functions.create_liquid_recipe_icon(nil, {{151, 212, 255}, {255, 255, 255}, {255, 255, 255}}),
 		subgroup = "liquifying",

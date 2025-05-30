@@ -1,21 +1,21 @@
 data:extend(
 {
-    {
-        type = "bool-setting",
-        name = "bery0zas-pure-it-pollutefromboxes",
-        setting_type = "startup",
-        default_value = true,
+	{
+		type = "bool-setting",
+		name = "bery0zas-pure-it-pollutefromboxes",
+		setting_type = "startup",
+		default_value = true,
 		order = "a[repollute]-a[switch]"
-    },
-    {
-        type = "int-setting",
-        name = "bery0zas-pure-it-amountofcollectedpollution",
-        setting_type = "startup",
-        default_value = 50,
-        minimum_value = 0,
-        maximum_value = 100,
+	},
+	{
+		type = "int-setting",
+		name = "bery0zas-pure-it-amountofcollectedpollution",
+		setting_type = "startup",
+		default_value = 50,
+		minimum_value = 0,
+		maximum_value = 100,
 		order = "a[repollute]-b[amount]"
-    },
+	},
 })
 
 if mods['bobplates'] then
