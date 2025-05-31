@@ -21,22 +21,31 @@ bery0zas.pure_it.entities.air_absorber =
 				production_type = "input",
 				pipe_picture = bery0zas.functions.pipe_pictures(),
 				pipe_covers = pipecoverspictures(),
-				volume = 100,
-				pipe_connections = { { type = "input", position = { -1, -2.5 } } },
+				volume = 1000,
+				pipe_connections =
+				{
+					{ flow_direction = "input", position = { -1, -2 }, direction = defines.direction.south },
+				},
 			},
 			{
 				production_type = "input",
 				pipe_picture = bery0zas.functions.pipe_pictures(),
 				pipe_covers = pipecoverspictures(),
-				volume = 100,
-				pipe_connections = { { type = "input", position = { 1, -2.5 } } },
+				volume = 1000,
+				pipe_connections =
+				{
+					{ flow_direction = "input", position = { 1, -2 }, direction = defines.direction.south },
+				},
 			},
 			{
 				production_type = "output",
 				pipe_picture = bery0zas.functions.pipe_pictures(),
 				pipe_covers = pipecoverspictures(),
-				volume = 100,
-				pipe_connections = { { type = "output", position = { 0, 2.5 } } },
+				volume = 1000,
+				pipe_connections =
+				{
+					{ flow_direction = "output", position = { 0, 2 }, direction = defines.direction.south },
+				},
 			},
 		},
 
@@ -253,11 +262,15 @@ bery0zas.pure_it.entities.air_absorber =
 		energy_required = 20.0,
 		ingredients =
 		{
-			{ type = "item", name = "iron-plate", amount = 10 },
-			{ type = "item", name = "pipe",  amount = 10 },
-			{ type = "item", name = "empty-barrel",  amount = 1 },
-			{ type = "item", name = "engine-unit",  amount = 1 },
-			{ type = "item", name = "electronic-circuit",  amount = 3 },
+			{ type = "item", name = "iron-plate", 				amount = 10 },
+			{ type = "item", name = "pipe",  							amount = 10 },
+			{ type = "item", name = "barrel",  						amount = 1 },
+			{ type = "item", name = "engine-unit",  			amount = 1 },
+			{ type = "item", name = "electronic-circuit",	amount = 3 },
+		},
+		reults =
+		{
+			{ type = "item", name = "bery0zas-air-absorber", amount = 1 }
 		}
 	},
 

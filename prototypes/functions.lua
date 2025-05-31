@@ -35,7 +35,20 @@ function bery0zas.functions.pipe_pictures()
 	}
 end
 
-local emissions = settings.startup["ery0zas-pure-it-amountofcollectedpollution"].value --[[@as number]]
+
+---@param t table
+---@param ... string
+---@return boolean
+--- Checks if table and key values exist
+--- <br> ``address_exists(table, "foo", "bar"...)``
+function address_exists(t, ...)
+  for i = 1, select("#", ...) do
+    if t == nil then return false end
+    t = t[select(i, ...)]
+  end
+  return true
+end
+
 
 ---adds the given category
 ---@param categories table<string>
@@ -51,30 +64,33 @@ end
 ---@param template PureItTemplate
 ---@param num_tiers number
 function bery0zas.functions.register_entity(template, num_tiers)
+log("registering entity: "..template.base_name)
 	for i = 1, num_tiers, 1 do
 		local proto = util.table.deepcopy(template.entity)
 		local name = template.base_name
 		local color_tint = bery0zas.common.level_tint[i]
 
 		proto.name = name .. "-" .. i
+		proto.localised_name = {"", {"entity-name."..template.base_name} }
 		proto.crafting_speed = bery0zas.common.crafting_speeds[i] * template.crafting_speed_multiplier
 		proto.minable = { mining_time = proto.crafting_speed, result = proto.name }
 
 		if (num_tiers > 1 and i < num_tiers) then
 			proto.next_upgrade = name .. "-" .. (i + 1)
+			proto.localised_name[3] = " MK"..tostring(i)
 		end
 
 		if (template.has_tint) then
 			proto.icons[1].tint = color_tint
 
 			for _, v in pairs(proto.animation or proto.idle_animation) do
-				v.layers[2].hr_version.tint = color_tint
+				v.layers[2].tint = color_tint -- tint layer
 			end
 		elseif (num_tiers > 1) then
-			proto.icons[1].tint = color_tint
+			proto.icons[1].tint = color_tint -- east layer
 
 			for _, v in pairs(proto.animation or proto.idle_animation) do
-				v.layers[1].hr_version.tint = color_tint
+				v.layers[1].tint = color_tint -- east layer
 			end
 		end
 
@@ -87,17 +103,22 @@ function bery0zas.functions.register_entity(template, num_tiers)
 
 		local recipe = util.table.deepcopy(template.base_recipe)
 		recipe.name = proto.name
+		recipe.localised_name = {"", {"entity-name."..template.base_name} }
+		recipe.icons = proto.icons
 		recipe.energy_required = recipe.energy_required * proto.crafting_speed
-		recipe.result = proto.name
+		recipe.results = recipe.results or {}
 
 		if (i > 1) then
 			recipe.ingredients = template.recipe_tiers[i]
-			table.insert(recipe.ingredients, { name .. "-" .. (i - 1), 1 })
+			recipe.localised_name[3] = " MK"..tostring(i)
+			table.insert(recipe.ingredients, { type = "item", name = name .. "-" .. (i - 1), amount = 1 })
+			table.insert(recipe.results, { type = "item", name = proto.name, amount = 1 })
 		end
 
 		data:extend({ proto, item, recipe })
 	end
 end
+
 
 ---@param item_name string
 function bery0zas.functions.remove_item(item_name)
@@ -122,14 +143,16 @@ end
 ---Can alter `energy_required`, `ingredients`, `results`
 ---@param recipe_name string
 ---@param field string
----@param sub_field? string|nil
+---@param sub_field? string|nil mandatory if field is ``"ingredients"`` or ``"results"``
 ---@param sub_field_value? any|nil
 ---@param target_sub_field? string|nil
 ---@param target_value any
 function bery0zas.functions.alter_recipe(recipe_name, field, sub_field, sub_field_value, target_sub_field, target_value)
 	if not field == "energy_required" and not target_sub_field then return end --TODO: should throw an error in logs
+
 	if field == "energy_required" then
 		data.raw.recipe[recipe_name][field] = target_value
+
 	elseif field == "ingredients" or field == "results" then
 		for _, fields in ipairs(data.raw.recipe[recipe_name][field]) do
 			for f, sub in pairs(fields) do
@@ -141,15 +164,18 @@ function bery0zas.functions.alter_recipe(recipe_name, field, sub_field, sub_fiel
 	end
 end
 
+
 ---Add a recipe as a technology effect
 ---@param technology string
 ---@param recipe_name string
 function bery0zas.functions.add_technology_recipe(technology, recipe_name)
+
 	table.insert(data.raw.technology[technology].effects, {
 		type = "unlock-recipe",
 		recipe = recipe_name
 	})
 end
+
 
 ---Remove a recipe from a technology effect
 ---@param technology string
@@ -169,6 +195,53 @@ function bery0zas.functions.remove_technology_recipe(technology, recipe_name)
 end
 
 
-function alter_emissions(entity_name, amount)
-	-- emissions
+---Emissions are calculated by multiplying emissions * energy usage
+---<br> This function does _not_ calculate this.
+---<br>
+---<br> https://lua-api.factorio.com/latest/prototypes/ElectricEnergyInterfacePrototype.html#energy_usage
+---<br> https://lua-api.factorio.com/latest/types/BaseEnergySource.html#emissions_per_minute
+---@param entity { type: string, name: string }
+---@param emission_table { pollution: number, energy_usage?: string }
+function bery0zas.functions.alter_emissions(entity, emission_table)
+log("new pollution: "..entity.name.." - "..emission_table.pollution)
+if emission_table.energy_usage then log("new energy_usage: "..entity.name.." - "..emission_table.energy_usage) end
+log(serpent.block(entity))
+log(serpent.block(emission_table))
+
+	if not type(emission_table.energy_usage) == "string" then emission_table.energy_usage = "0W" end
+
+  if address_exists(data.raw[entity.type][entity.name], "energy_usage") then
+		log("Found: "..entity.name) else log("Missing: "..entity.name)
+	end
+
+log("LuaEntity: " ..serpent.block(data.raw[entity.type][entity.name]))
+log(serpent.block(emission_table))
+
+	data.raw[entity.type][entity.name].energy_usage = emission_table.energy_usage
+	data.raw[entity.type][entity.name].energy_source.emissions_per_minute = {pollution = emission_table.pollution}
+
+log(serpent.block(data.raw[entity.type][entity.name].energy_source))
+end
+
+
+--TODO: 
+--adds space age stuff
+--<br> `"pressure"` `"gravity"`
+--<br> max 1.79769313486229997955945236754e29
+---@param entity { type: string, name: string }
+---@param property { name: string, values: {min: number, max: number} }
+function bery0zas.functions.spaceage(entity, property)
+if not mods["space-age"] then return end
+
+	if data.raw[entity.type][entity.name].surface_conditions then
+		local surface_conditions = data.raw[entity.type][entity.name].surface_conditions or {{property = property.name}}
+		local size = #surface_conditions
+
+		for index = 1, size, 1 do
+			if surface_conditions[index].property == property.name then
+				surface_conditions[index].min = math.max(property.values.min, 0)
+				surface_conditions[index].max = math.max(property.values.max, 0)
+			end
+		end
+	end
 end

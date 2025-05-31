@@ -19,17 +19,18 @@ bery0zas.pure_it.entities.air_suction_tower =
 		{
 			{
 				production_type = "input",
-				base_area = 10,
-				base_level = -1,
+				volume = 1000,
 				pipe_connections = {}
 			},
 			{
 				production_type = "output",
 				pipe_picture = bery0zas.functions.pipe_pictures(),
 				pipe_covers = pipecoverspictures(),
-				base_area = 10,
-				base_level = 1,
-				pipe_connections = { { type = "output", position = { 0, -2.5 } } },
+				volume = 1000,
+				pipe_connections =
+				{
+					{ flow_direction = "output", position = { 0, -1.5 }, direction = defines.direction.south },
+				},
 			}
 		},
 
@@ -246,17 +247,21 @@ bery0zas.pure_it.entities.air_suction_tower =
 		energy_required = 20.0,
 		ingredients =
 		{
-			{ "iron-plate",         10 },
-			{ "pipe",               5 },
-			{ "electronic-circuit", 5 },
-			{ "engine-unit",        5 }
+			{ type = "item", name = "iron-plate",         amount = 10 },
+			{ type = "item", name = "pipe",               amount = 5 },
+			{ type = "item", name = "electronic-circuit", amount = 5 },
+			{ type = "item", name = "engine-unit",        amount = 5 }
+		},
+		reults =
+		{
+			{ type = "item", name = "bery0zas-air-suction-tower", amount = 1 }
 		}
 	},
 
 	recipe_tiers =
 	{
-		{},
-		{ { "steel-plate", 10 },                               { "advanced-circuit", 5 } },
-		{ { type = "fluid", name = "lubricant", amount = 50 }, { "electric-engine-unit", 5 } }
+		{}, --reserved for previous tier tower as ingredient
+		{ { type = "item", name = "steel-plate", amount = 10 }, { type = "item", name = "advanced-circuit", amount = 5 } },
+		{ { type = "fluid", name = "lubricant", amount = 50 }, { type = "item", name = "electric-engine-unit", amount = 5 } }
 	}
 }

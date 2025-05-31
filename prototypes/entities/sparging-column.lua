@@ -149,33 +149,34 @@ data:extend(
 					production_type = "input",
 					pipe_picture = bery0zas.functions.pipe_pictures(),
 					pipe_covers = pipecoverspictures(),
-					-- base_area = 10,
-					-- base_level = -1,
-					volume = 100,
-					pipe_connections = { { type = "input", position = { -1, -1.5 } } },
+					volume = 1000,
+					pipe_connections =
+					{
+						-- { flow_direction = "input", position = { -1, -1.5 }, direction = defines.direction.north },
+						{ flow_direction = "input", position = { -1, -.5 }, direction = defines.direction.north },
+					},
 					secondary_draw_orders = { north = -1 }
 				},
 				{
 					production_type = "input",
 					pipe_picture = bery0zas.functions.pipe_pictures(),
 					pipe_covers = pipecoverspictures(),
-					-- base_area = 10,
-					-- base_level = -1,
-					volume = 100,
-					pipe_connections = { { type = "input", position = { 1, -1.5 } } },
+					volume = 1000,
+					pipe_connections =
+					{
+						{ flow_direction = "input", position = { 1, -.5 }, direction = defines.direction.south },
+					},
 					secondary_draw_orders = { north = -1 }
 				},
 				{
 					production_type = "output",
 					pipe_picture = bery0zas.functions.pipe_pictures(),
 					pipe_covers = pipecoverspictures(),
-					-- base_area = 10,
-					-- base_level = 1,
-					volume = 100,
+					volume = 1000,
 					pipe_connections =
 					{
-						{ type = "output", position = { -1, 1.5 } },
-						{ type = "output", position = { 1, 1.5 } },
+						{ flow_direction = "output", position = { -1, .5 }, direction = defines.direction.north },
+						{ flow_direction = "output", position = { 1, .5 }, direction = defines.direction.south },
 					},
 					secondary_draw_orders = { north = -1 }
 				},
