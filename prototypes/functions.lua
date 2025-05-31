@@ -64,7 +64,7 @@ end
 ---@param template PureItTemplate
 ---@param num_tiers number
 function bery0zas.functions.register_entity(template, num_tiers)
-log("registering entity: "..template.base_name)
+log("New entity: "..template.base_name)
 	for i = 1, num_tiers, 1 do
 		local proto = util.table.deepcopy(template.entity)
 		local name = template.base_name
@@ -83,13 +83,13 @@ log("registering entity: "..template.base_name)
 		if (template.has_tint) then
 			proto.icons[1].tint = color_tint
 
-			for _, v in pairs(proto.animation or proto.idle_animation) do
+			for _, v in pairs(proto.graphics_set.animation or proto.graphics_set.idle_animation) do
 				v.layers[2].tint = color_tint -- tint layer
 			end
 		elseif (num_tiers > 1) then
 			proto.icons[1].tint = color_tint -- east layer
 
-			for _, v in pairs(proto.animation or proto.idle_animation) do
+			for _, v in pairs(proto.graphics_set.animation or proto.graphics_set.idle_animation) do
 				v.layers[1].tint = color_tint -- east layer
 			end
 		end
@@ -200,22 +200,17 @@ end
 ---<br>
 ---<br> https://lua-api.factorio.com/latest/prototypes/ElectricEnergyInterfacePrototype.html#energy_usage
 ---<br> https://lua-api.factorio.com/latest/types/BaseEnergySource.html#emissions_per_minute
----@param entity { type: string, name: string }
+---@param entity { type: string, name: string, tier?: number|string }
 ---@param emission_table { pollution: number, energy_usage?: string }
 function bery0zas.functions.alter_emissions(entity, emission_table)
-log("new pollution: "..entity.name.." - "..emission_table.pollution)
-if emission_table.energy_usage then log("new energy_usage: "..entity.name.." - "..emission_table.energy_usage) end
-log(serpent.block(entity))
-log(serpent.block(emission_table))
+	entity.tier = entity.tier and tostring(entity.tier) or "1"
+	entity.name = entity.name.."-"..entity.tier
 
-	if not type(emission_table.energy_usage) == "string" then emission_table.energy_usage = "0W" end
+	log("new pollution: "..entity.name.." - "..emission_table.pollution)
+	if emission_table.energy_usage then log("new energy_usage: "..entity.name.." - "..emission_table.energy_usage) end
 
-  if address_exists(data.raw[entity.type][entity.name], "energy_usage") then
-		log("Found: "..entity.name) else log("Missing: "..entity.name)
-	end
+	if not type(emission_table.energy_usage) == "string" then emission_table.energy_usage = "1W" end
 
-log("LuaEntity: " ..serpent.block(data.raw[entity.type][entity.name]))
-log(serpent.block(emission_table))
 
 	data.raw[entity.type][entity.name].energy_usage = emission_table.energy_usage
 	data.raw[entity.type][entity.name].energy_source.emissions_per_minute = {pollution = emission_table.pollution}

@@ -29,7 +29,7 @@ bery0zas.pure_it.entities.air_suction_tower =
 				volume = 1000,
 				pipe_connections =
 				{
-					{ flow_direction = "output", position = { 0, -1.5 }, direction = defines.direction.south },
+					{ flow_direction = "output", position = { 0, -1.5 }, direction = defines.direction.north },
 				},
 			}
 		},
@@ -48,169 +48,174 @@ bery0zas.pure_it.entities.air_suction_tower =
 		integration_patch_render_layer = "higher-object-above",
 		--match_animation_speed_to_activity = true,			
 		always_draw_idle_animation = true,
-		idle_animation =
-		{
-			east =
+		graphics_set =
+    {
+			animation_progress = 0.5,
+			-- idle_animation =
+			animation =
 			{
-				layers =
+				east =
 				{
+					layers =
 					{
-						filename = "__bery0zas-pure-it__/graphics/entity/suction-tower/hr-suction-tower-east.png",
-						priority = "extra-high",
-						width = 640,
-						height = 640,
-						frame_count = 8,
-						animation_speed = 1.0,
-						line_length = 3,
-						shift = util.by_pixel(63, -48),
-						scale = 0.5
-					},
-					{
-						filename = "__bery0zas-pure-it__/graphics/entity/suction-tower/hr-suction-tower-east-tint.png",
-						priority = "extra-high",
-						flags = { "mask" },
-						width = 640,
-						height = 640,
-						frame_count = 8,
-						animation_speed = 1.0,
-						line_length = 3,
-						shift = util.by_pixel(63, -48),
-						scale = 0.5
-					},
-					{
-						filename = "__bery0zas-pure-it__/graphics/entity/suction-tower/hr-suction-tower-east-shadow.png",
-						priority = "medium",
-						width = 640,
-						height = 640,
-						frame_count = 8,
-						animation_speed = 1.0,
-						line_length = 3,
-						draw_as_shadow = true,
-						shift = util.by_pixel(63, -48),
-						scale = 0.5
+						{
+							filename = "__bery0zas-pure-it__/graphics/entity/suction-tower/hr-suction-tower-east.png",
+							priority = "extra-high",
+							width = 640,
+							height = 640,
+							frame_count = 8,
+							animation_speed = 1.0,
+							line_length = 3,
+							shift = util.by_pixel(63, -48),
+							scale = 0.5
+						},
+						{
+							filename = "__bery0zas-pure-it__/graphics/entity/suction-tower/hr-suction-tower-east-tint.png",
+							priority = "extra-high",
+							flags = { "mask" },
+							width = 640,
+							height = 640,
+							frame_count = 8,
+							animation_speed = 1.0,
+							line_length = 3,
+							shift = util.by_pixel(63, -48),
+							scale = 0.5
+						},
+						{
+							filename = "__bery0zas-pure-it__/graphics/entity/suction-tower/hr-suction-tower-east-shadow.png",
+							priority = "medium",
+							width = 640,
+							height = 640,
+							frame_count = 8,
+							animation_speed = 1.0,
+							line_length = 3,
+							draw_as_shadow = true,
+							shift = util.by_pixel(63, -48),
+							scale = 0.5
+						}
 					}
-				}
-			},
-			north =
-			{
-				layers =
+				},
+				north =
 				{
+					layers =
 					{
-						filename = "__bery0zas-pure-it__/graphics/entity/suction-tower/hr-suction-tower-north.png",
-						priority = "extra-high",
-						width = 640,
-						height = 640,
-						frame_count = 8,
-						animation_speed = 1.0,
-						line_length = 3,
-						shift = util.by_pixel(79, -34),
-						scale = 0.5
-					},
-					{
-						filename = "__bery0zas-pure-it__/graphics/entity/suction-tower/hr-suction-tower-north-tint.png",
-						priority = "extra-high",
-						flags = { "mask" },
-						width = 640,
-						height = 640,
-						frame_count = 8,
-						animation_speed = 1.0,
-						line_length = 3,
-						shift = util.by_pixel(79, -34),
-						scale = 0.5
-					},
-					{
-						filename = "__bery0zas-pure-it__/graphics/entity/suction-tower/hr-suction-tower-north-shadow.png",
-						priority = "medium",
-						width = 640,
-						height = 640,
-						frame_count = 8,
-						animation_speed = 1.0,
-						line_length = 3,
-						draw_as_shadow = true,
-						shift = util.by_pixel(79, -34),
-						scale = 0.5
+						{
+							filename = "__bery0zas-pure-it__/graphics/entity/suction-tower/hr-suction-tower-north.png",
+							priority = "extra-high",
+							width = 640,
+							height = 640,
+							frame_count = 8,
+							animation_speed = 1.0,
+							line_length = 3,
+							shift = util.by_pixel(79, -34),
+							scale = 0.5
+						},
+						{
+							filename = "__bery0zas-pure-it__/graphics/entity/suction-tower/hr-suction-tower-north-tint.png",
+							priority = "extra-high",
+							flags = { "mask" },
+							width = 640,
+							height = 640,
+							frame_count = 8,
+							animation_speed = 1.0,
+							line_length = 3,
+							shift = util.by_pixel(79, -34),
+							scale = 0.5
+						},
+						{
+							filename = "__bery0zas-pure-it__/graphics/entity/suction-tower/hr-suction-tower-north-shadow.png",
+							priority = "medium",
+							width = 640,
+							height = 640,
+							frame_count = 8,
+							animation_speed = 1.0,
+							line_length = 3,
+							draw_as_shadow = true,
+							shift = util.by_pixel(79, -34),
+							scale = 0.5
+						}
 					}
-				}
-			},
-			west =
-			{
-				layers =
+				},
+				west =
 				{
+					layers =
 					{
-						filename = "__bery0zas-pure-it__/graphics/entity/suction-tower/hr-suction-tower-west.png",
-						priority = "extra-high",
-						width = 640,
-						height = 640,
-						frame_count = 8,
-						animation_speed = 1.0,
-						line_length = 3,
-						shift = util.by_pixel(64, -49),
-						scale = 0.5
-					},
-					{
-						filename = "__bery0zas-pure-it__/graphics/entity/suction-tower/hr-suction-tower-west-tint.png",
-						priority = "extra-high",
-						flags = { "mask" },
-						width = 640,
-						height = 640,
-						frame_count = 8,
-						animation_speed = 1.0,
-						line_length = 3,
-						shift = util.by_pixel(64, -49),
-						scale = 0.5
-					},
-					{
-						filename = "__bery0zas-pure-it__/graphics/entity/suction-tower/hr-suction-tower-west-shadow.png",
-						priority = "medium",
-						width = 640,
-						height = 640,
-						frame_count = 8,
-						animation_speed = 1.0,
-						line_length = 3,
-						draw_as_shadow = true,
-						shift = util.by_pixel(64, -49),
-						scale = 0.5
+						{
+							filename = "__bery0zas-pure-it__/graphics/entity/suction-tower/hr-suction-tower-west.png",
+							priority = "extra-high",
+							width = 640,
+							height = 640,
+							frame_count = 8,
+							animation_speed = 1.0,
+							line_length = 3,
+							shift = util.by_pixel(64, -49),
+							scale = 0.5
+						},
+						{
+							filename = "__bery0zas-pure-it__/graphics/entity/suction-tower/hr-suction-tower-west-tint.png",
+							priority = "extra-high",
+							flags = { "mask" },
+							width = 640,
+							height = 640,
+							frame_count = 8,
+							animation_speed = 1.0,
+							line_length = 3,
+							shift = util.by_pixel(64, -49),
+							scale = 0.5
+						},
+						{
+							filename = "__bery0zas-pure-it__/graphics/entity/suction-tower/hr-suction-tower-west-shadow.png",
+							priority = "medium",
+							width = 640,
+							height = 640,
+							frame_count = 8,
+							animation_speed = 1.0,
+							line_length = 3,
+							draw_as_shadow = true,
+							shift = util.by_pixel(64, -49),
+							scale = 0.5
+						}
 					}
-				}
-			},
-			south =
-			{
-				layers =
+				},
+				south =
 				{
+					layers =
 					{
-						filename = "__bery0zas-pure-it__/graphics/entity/suction-tower/hr-suction-tower-south.png",
-						priority = "extra-high",
-						width = 640,
-						height = 640,
-						frame_count = 8,
-						animation_speed = 1.0,
-						line_length = 3,
-						shift = util.by_pixel(80, -31),
-						scale = 0.5
-					},
-					{
-						filename = "__bery0zas-pure-it__/graphics/entity/suction-tower/hr-suction-tower-south-tint.png",
-						priority = "extra-high",
-						flags = { "mask" },
-						width = 640,
-						height = 640,
-						frame_count = 8,
-						animation_speed = 1.0,
-						line_length = 3,
-						shift = util.by_pixel(80, -31),
-						scale = 0.5
-					},
-					{
-						filename = "__bery0zas-pure-it__/graphics/entity/suction-tower/hr-suction-tower-south-shadow.png",
-						priority = "medium",
-						width = 640,
-						height = 640,
-						frame_count = 8,
-						animation_speed = 1.0,
-						line_length = 3,
-						draw_as_shadow = true,
-						shift = util.by_pixel(80, -31),
-						scale = 0.5
+						{
+							filename = "__bery0zas-pure-it__/graphics/entity/suction-tower/hr-suction-tower-south.png",
+							priority = "extra-high",
+							width = 640,
+							height = 640,
+							frame_count = 8,
+							animation_speed = 1.0,
+							line_length = 3,
+							shift = util.by_pixel(80, -31),
+							scale = 0.5
+						},
+						{
+							filename = "__bery0zas-pure-it__/graphics/entity/suction-tower/hr-suction-tower-south-tint.png",
+							priority = "extra-high",
+							flags = { "mask" },
+							width = 640,
+							height = 640,
+							frame_count = 8,
+							animation_speed = 1.0,
+							line_length = 3,
+							shift = util.by_pixel(80, -31),
+							scale = 0.5
+						},
+						{
+							filename = "__bery0zas-pure-it__/graphics/entity/suction-tower/hr-suction-tower-south-shadow.png",
+							priority = "medium",
+							width = 640,
+							height = 640,
+							frame_count = 8,
+							animation_speed = 1.0,
+							line_length = 3,
+							draw_as_shadow = true,
+							shift = util.by_pixel(80, -31),
+							scale = 0.5
+						}
 					}
 				}
 			}

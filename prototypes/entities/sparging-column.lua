@@ -15,121 +15,125 @@ data:extend(
 			selection_box = { { -1.5, -1 }, { 1.5, 1 } },
 			--drawing_box = {{ -3.0, -6.5 }, { 3.0, 2.0 }},
 			integration_patch_render_layer = "higher-object-above",
-			animation =
+			graphics_set =
 			{
-				east =
+				animation_progress = 0,
+				animation =
 				{
-					layers =
+					east =
 					{
+						layers =
 						{
-							filename = "__bery0zas-pure-it__/graphics/entity/sparging-column/hr-sparging-column-east.png",
-							priority = "extra-high",
-							width = 576,
-							height = 576,
-							frame_count = 1,
-							animation_speed = 1.0,
-							line_length = 1,
-							shift = util.by_pixel(80, -82),
-							scale = 0.5
-						},
-						{
-							filename = "__bery0zas-pure-it__/graphics/entity/sparging-column/hr-sparging-column-east-shadow.png",
-							priority = "medium",
-							width = 576,
-							height = 576,
-							frame_count = 1,
-							animation_speed = 1.0,
-							line_length = 1,
-							draw_as_shadow = true,
-							shift = util.by_pixel(80, -82),
-							scale = 0.5
+							{
+								filename = "__bery0zas-pure-it__/graphics/entity/sparging-column/hr-sparging-column-east.png",
+								priority = "extra-high",
+								width = 576,
+								height = 576,
+								frame_count = 1,
+								animation_speed = 1.0,
+								line_length = 1,
+								shift = util.by_pixel(80, -82),
+								scale = 0.5
+							},
+							{
+								filename = "__bery0zas-pure-it__/graphics/entity/sparging-column/hr-sparging-column-east-shadow.png",
+								priority = "medium",
+								width = 576,
+								height = 576,
+								frame_count = 1,
+								animation_speed = 1.0,
+								line_length = 1,
+								draw_as_shadow = true,
+								shift = util.by_pixel(80, -82),
+								scale = 0.5
+							}
 						}
-					}
-				},
-				north =
-				{
-					layers =
+					},
+					north =
 					{
+						layers =
 						{
-							filename = "__bery0zas-pure-it__/graphics/entity/sparging-column/hr-sparging-column-north.png",
-							priority = "extra-high",
-							width = 576,
-							height = 576,
-							frame_count = 1,
-							animation_speed = 1.0,
-							line_length = 1,
-							shift = util.by_pixel(78, -72),
-							scale = 0.5
-						},
-						{
-							filename = "__bery0zas-pure-it__/graphics/entity/sparging-column/hr-sparging-column-north-shadow.png",
-							priority = "medium",
-							width = 576,
-							height = 576,
-							frame_count = 1,
-							animation_speed = 1.0,
-							line_length = 1,
-							draw_as_shadow = true,
-							shift = util.by_pixel(78, -72),
-							scale = 0.5
+							{
+								filename = "__bery0zas-pure-it__/graphics/entity/sparging-column/hr-sparging-column-north.png",
+								priority = "extra-high",
+								width = 576,
+								height = 576,
+								frame_count = 1,
+								animation_speed = 1.0,
+								line_length = 1,
+								shift = util.by_pixel(78, -72),
+								scale = 0.5
+							},
+							{
+								filename = "__bery0zas-pure-it__/graphics/entity/sparging-column/hr-sparging-column-north-shadow.png",
+								priority = "medium",
+								width = 576,
+								height = 576,
+								frame_count = 1,
+								animation_speed = 1.0,
+								line_length = 1,
+								draw_as_shadow = true,
+								shift = util.by_pixel(78, -72),
+								scale = 0.5
+							}
 						}
-					}
-				},
-				west =
-				{
-					layers =
+					},
+					west =
 					{
+						layers =
 						{
-							filename = "__bery0zas-pure-it__/graphics/entity/sparging-column/hr-sparging-column-west.png",
-							priority = "extra-high",
-							width = 576,
-							height = 576,
-							frame_count = 1,
-							animation_speed = 1.0,
-							line_length = 1,
-							shift = util.by_pixel(80, -66),
-							scale = 0.5
-						},
-						{
-							filename = "__bery0zas-pure-it__/graphics/entity/sparging-column/hr-sparging-column-west-shadow.png",
-							priority = "medium",
-							width = 576,
-							height = 576,
-							frame_count = 1,
-							animation_speed = 1.0,
-							line_length = 1,
-							draw_as_shadow = true,
-							shift = util.by_pixel(80, -66),
-							scale = 0.5
+							{
+								filename = "__bery0zas-pure-it__/graphics/entity/sparging-column/hr-sparging-column-west.png",
+								priority = "extra-high",
+								width = 576,
+								height = 576,
+								frame_count = 1,
+								animation_speed = 1.0,
+								line_length = 1,
+								shift = util.by_pixel(80, -66),
+								scale = 0.5
+							},
+							{
+								filename = "__bery0zas-pure-it__/graphics/entity/sparging-column/hr-sparging-column-west-shadow.png",
+								priority = "medium",
+								width = 576,
+								height = 576,
+								frame_count = 1,
+								animation_speed = 1.0,
+								line_length = 1,
+								draw_as_shadow = true,
+								shift = util.by_pixel(80, -66),
+								scale = 0.5
+							}
 						}
-					}
-				},
-				south =
-				{
-					layers =
+					},
+					south =
 					{
+						layers =
 						{
-							filename = "__bery0zas-pure-it__/graphics/entity/sparging-column/hr-sparging-column-south.png",
-							priority = "extra-high",
-							width = 576,
-							height = 576,
-							frame_count = 1,
-							animation_speed = 1.0,
-							line_length = 1,
-							shift = util.by_pixel(78, -72),
-							scale = 0.5
-						},
-						{
-							filename = "__bery0zas-pure-it__/graphics/entity/sparging-column/hr-sparging-column-south-shadow.png",
-							priority = "medium",
-							width = 576,
-							height = 576,
-							frame_count = 1,
-							animation_speed = 1.0,
-							line_length = 1,
-							draw_as_shadow = true,
-							shift = util.by_pixel(78, -72),
-							scale = 0.5
+							{
+								filename = "__bery0zas-pure-it__/graphics/entity/sparging-column/hr-sparging-column-south.png",
+								priority = "extra-high",
+								width = 576,
+								height = 576,
+								frame_count = 1,
+								animation_speed = 1.0,
+								line_length = 1,
+								shift = util.by_pixel(78, -72),
+								scale = 0.5
+							},
+							{
+								filename = "__bery0zas-pure-it__/graphics/entity/sparging-column/hr-sparging-column-south-shadow.png",
+								priority = "medium",
+								width = 576,
+								height = 576,
+								frame_count = 1,
+								animation_speed = 1.0,
+								line_length = 1,
+								draw_as_shadow = true,
+								shift = util.by_pixel(78, -72),
+								scale = 0.5
+							}
 						}
 					}
 				}
@@ -164,7 +168,7 @@ data:extend(
 					volume = 1000,
 					pipe_connections =
 					{
-						{ flow_direction = "input", position = { 1, -.5 }, direction = defines.direction.south },
+						{ flow_direction = "input", position = { 1, -.5 }, direction = defines.direction.north },
 					},
 					secondary_draw_orders = { north = -1 }
 				},
@@ -175,8 +179,8 @@ data:extend(
 					volume = 1000,
 					pipe_connections =
 					{
-						{ flow_direction = "output", position = { -1, .5 }, direction = defines.direction.north },
 						{ flow_direction = "output", position = { 1, .5 }, direction = defines.direction.south },
+						{ flow_direction = "output", position = { -1, .5 }, direction = defines.direction.south },
 					},
 					secondary_draw_orders = { north = -1 }
 				},

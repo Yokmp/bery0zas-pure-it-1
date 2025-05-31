@@ -24,7 +24,7 @@ bery0zas.pure_it.entities.air_adsorber =
 				volume = 1000,
 				pipe_connections =
 				{
-					{ flow_direction = "input", position = { -1, -1 }, direction = defines.direction.south },
+					{ flow_direction = "input", position = { -1, -1 }, direction = defines.direction.north },
 				},
 			},
 			{
@@ -34,7 +34,7 @@ bery0zas.pure_it.entities.air_adsorber =
 				volume = 1000,
 				pipe_connections =
 				{
-					{ flow_direction = "input", position = { 1, -1 }, direction = defines.direction.south },
+					{ flow_direction = "input", position = { 1, -1 }, direction = defines.direction.north },
 				},
 			}
 		},
@@ -54,121 +54,125 @@ bery0zas.pure_it.entities.air_adsorber =
 		icons = { { icon = "__bery0zas-pure-it__/graphics/icons/adsorber.png", icon_size = 64, tint = { r = 1, g = 1, b = 1, a = 1 } } },
 		integration_patch_render_layer = "lower-object-above-shadow",
 		match_animation_speed_to_activity = true,
-		animation =
-		{
-			east =
+		graphics_set =
+    {
+			animation_progress = 0,
+			animation =
 			{
-				layers =
+				east =
 				{
+					layers =
 					{
-						filename = "__bery0zas-pure-it__/graphics/entity/adsorber/hr-adsorber-east.png",
-						priority = "extra-high",
-						width = 448,
-						height = 448,
-						frame_count = 1,
-						animation_speed = 1.0,
-						line_length = 1,
-						shift = util.by_pixel(31, -33),
-						scale = 0.5
-					},
-					{
-						filename = "__bery0zas-pure-it__/graphics/entity/adsorber/hr-adsorber-east-shadow.png",
-						priority = "medium",
-						width = 448,
-						height = 448,
-						frame_count = 1,
-						animation_speed = 1.0,
-						line_length = 1,
-						draw_as_shadow = true,
-						shift = util.by_pixel(31, -33),
-						scale = 0.5
+						{
+							filename = "__bery0zas-pure-it__/graphics/entity/adsorber/hr-adsorber-east.png",
+							priority = "extra-high",
+							width = 448,
+							height = 448,
+							frame_count = 1,
+							animation_speed = 1.0,
+							line_length = 1,
+							shift = util.by_pixel(31, -33),
+							scale = 0.5
+						},
+						{
+							filename = "__bery0zas-pure-it__/graphics/entity/adsorber/hr-adsorber-east-shadow.png",
+							priority = "medium",
+							width = 448,
+							height = 448,
+							frame_count = 1,
+							animation_speed = 1.0,
+							line_length = 1,
+							draw_as_shadow = true,
+							shift = util.by_pixel(31, -33),
+							scale = 0.5
+						}
 					}
-				}
-			},
-			north =
-			{
-				layers =
+				},
+				north =
 				{
+					layers =
 					{
-						filename = "__bery0zas-pure-it__/graphics/entity/adsorber/hr-adsorber-north.png",
-						priority = "extra-high",
-						width = 448,
-						height = 448,
-						frame_count = 1,
-						animation_speed = 1.0,
-						line_length = 1,
-						shift = util.by_pixel(32, -35),
-						scale = 0.5
-					},
-					{
-						filename = "__bery0zas-pure-it__/graphics/entity/adsorber/hr-adsorber-north-shadow.png",
-						priority = "medium",
-						width = 448,
-						height = 448,
-						frame_count = 1,
-						animation_speed = 1.0,
-						line_length = 1,
-						draw_as_shadow = true,
-						shift = util.by_pixel(32, -35),
-						scale = 0.5
+						{
+							filename = "__bery0zas-pure-it__/graphics/entity/adsorber/hr-adsorber-north.png",
+							priority = "extra-high",
+							width = 448,
+							height = 448,
+							frame_count = 1,
+							animation_speed = 1.0,
+							line_length = 1,
+							shift = util.by_pixel(32, -35),
+							scale = 0.5
+						},
+						{
+							filename = "__bery0zas-pure-it__/graphics/entity/adsorber/hr-adsorber-north-shadow.png",
+							priority = "medium",
+							width = 448,
+							height = 448,
+							frame_count = 1,
+							animation_speed = 1.0,
+							line_length = 1,
+							draw_as_shadow = true,
+							shift = util.by_pixel(32, -35),
+							scale = 0.5
+						}
 					}
-				}
-			},
-			west =
-			{
-				layers =
+				},
+				west =
 				{
+					layers =
 					{
-						filename = "__bery0zas-pure-it__/graphics/entity/adsorber/hr-adsorber-west.png",
-						priority = "extra-high",
-						width = 448,
-						height = 448,
-						frame_count = 1,
-						animation_speed = 1.0,
-						line_length = 1,
-						shift = util.by_pixel(32, -32),
-						scale = 0.5
-					},
-					{
-						filename = "__bery0zas-pure-it__/graphics/entity/adsorber/hr-adsorber-west-shadow.png",
-						priority = "medium",
-						width = 448,
-						height = 448,
-						frame_count = 1,
-						animation_speed = 1.0,
-						line_length = 1,
-						draw_as_shadow = true,
-						shift = util.by_pixel(32, -32),
-						scale = 0.5
+						{
+							filename = "__bery0zas-pure-it__/graphics/entity/adsorber/hr-adsorber-west.png",
+							priority = "extra-high",
+							width = 448,
+							height = 448,
+							frame_count = 1,
+							animation_speed = 1.0,
+							line_length = 1,
+							shift = util.by_pixel(32, -32),
+							scale = 0.5
+						},
+						{
+							filename = "__bery0zas-pure-it__/graphics/entity/adsorber/hr-adsorber-west-shadow.png",
+							priority = "medium",
+							width = 448,
+							height = 448,
+							frame_count = 1,
+							animation_speed = 1.0,
+							line_length = 1,
+							draw_as_shadow = true,
+							shift = util.by_pixel(32, -32),
+							scale = 0.5
+						}
 					}
-				}
-			},
-			south =
-			{
-				layers =
+				},
+				south =
 				{
+					layers =
 					{
-						filename = "__bery0zas-pure-it__/graphics/entity/adsorber/hr-adsorber-south.png",
-						priority = "extra-high",
-						width = 448,
-						height = 448,
-						frame_count = 1,
-						animation_speed = 1.0,
-						line_length = 1,
-						shift = util.by_pixel(32, -34),
-						scale = 0.5
-					},
-					{
-						filename = "__bery0zas-pure-it__/graphics/entity/adsorber/hr-adsorber-south-shadow.png",
-						priority = "medium",
-						width = 448,
-						height = 448,
-						frame_count = 1,
-						animation_speed = 1.0,
-						line_length = 1,
-						draw_as_shadow = true,
-						shift = util.by_pixel(32, -34),
-						scale = 0.5
+						{
+							filename = "__bery0zas-pure-it__/graphics/entity/adsorber/hr-adsorber-south.png",
+							priority = "extra-high",
+							width = 448,
+							height = 448,
+							frame_count = 1,
+							animation_speed = 1.0,
+							line_length = 1,
+							shift = util.by_pixel(32, -34),
+							scale = 0.5
+						},
+						{
+							filename = "__bery0zas-pure-it__/graphics/entity/adsorber/hr-adsorber-south-shadow.png",
+							priority = "medium",
+							width = 448,
+							height = 448,
+							frame_count = 1,
+							animation_speed = 1.0,
+							line_length = 1,
+							draw_as_shadow = true,
+							shift = util.by_pixel(32, -34),
+							scale = 0.5
+						}
 					}
 				}
 			}
