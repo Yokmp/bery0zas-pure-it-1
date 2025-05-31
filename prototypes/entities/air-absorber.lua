@@ -7,9 +7,9 @@ bery0zas.pure_it.entities.air_absorber =
 	entity =
 	{
 		type = "assembling-machine",
-		fast_replaceable_group = "bery0zas-air-absorber",
 		flags = { "placeable-neutral", "placeable-player", "player-creation" },
 		minable = { mining_time = 0.5, result = "bery0zas-air-absorber" },
+		fast_replaceable_group = "bery0zas-air-absorber",
 		max_health = 150,
 		corpse = "medium-remnants",
 
@@ -44,7 +44,7 @@ bery0zas.pure_it.entities.air_absorber =
 				volume = 1000,
 				pipe_connections =
 				{
-					{ flow_direction = "output", position = { 0, 1.75 }, direction = defines.direction.south },
+					{ flow_direction = "output", position = { 0, 1.5 }, direction = defines.direction.south },
 				},
 			},
 		},
@@ -55,12 +55,15 @@ bery0zas.pure_it.entities.air_absorber =
 		{
 			type = "electric",
 			usage_priority = "secondary-input",
-      emissions_per_minute = { pollution = -50 }
+			emissions_per_minute = { pollution = 6 }
 		},
 
 		module_specification = { module_slots = 2 },
 		allowed_effects = { "consumption", "speed" },
-		icons = { { icon = "__bery0zas-pure-it__/graphics/icons/absorber.png", icon_size = 64, tint = { r = 1, g = 1, b = 1, a = 1 } } },
+		icons = {
+			{ icon = "__bery0zas-pure-it__/graphics/icons/absorber.png", icon_size = 64},
+			{ icon = "__bery0zas-pure-it__/graphics/icons/absorber-tint.png", icon_size = 64},
+			},
 		integration_patch_render_layer = "lower-object-above-shadow",
 		match_animation_speed_to_activity = true,
 		graphics_set =

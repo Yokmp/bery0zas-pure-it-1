@@ -7,9 +7,9 @@ bery0zas.pure_it.entities.air_suction_tower =
 	entity =
 	{
 		type = "assembling-machine",
-		fast_replaceable_group = "bery0zas-air-sucker",
 		flags = { "placeable-neutral", "placeable-player", "player-creation" },
 		minable = { mining_time = 0.5, result = "bery0zas-air-suction-tower" },
+		fast_replaceable_group = "bery0zas-air-suction-tower",
 		max_health = 150,
 		corpse = "medium-remnants",
 
@@ -40,18 +40,21 @@ bery0zas.pure_it.entities.air_suction_tower =
 		{
 			type = "electric",
 			usage_priority = "secondary-input",
+      emissions_per_minute = { pollution = -25 } -- orig -50
 		},
 
 		module_specification = { module_slots = 2 },
 		allowed_effects = { "consumption", "speed" },
-		icons = { { icon = "__bery0zas-pure-it__/graphics/icons/suction-tower.png", icon_size = 64, tint = { r = 1, g = 1, b = 1, a = 1 } } },
+		icons = {
+			{ icon = "__bery0zas-pure-it__/graphics/icons/suction-tower.png", icon_size = 64 },
+			{ icon = "__bery0zas-pure-it__/graphics/icons/suction-tower-tint.png", icon_size = 64}
+		},
 		integration_patch_render_layer = "higher-object-above",
 		--match_animation_speed_to_activity = true,			
 		always_draw_idle_animation = true,
 		graphics_set =
     {
 			animation_progress = 0.5,
-			-- idle_animation =
 			animation =
 			{
 				east =
@@ -239,7 +242,7 @@ bery0zas.pure_it.entities.air_suction_tower =
 	item =
 	{
 		type = "item",
-		icons = { { icon = "__bery0zas-pure-it__/graphics/icons/suction-tower.png", icon_size = 64, tint = { r = 1, g = 1, b = 1, a = 1 } } },
+		icons = {{ icon = "__bery0zas-pure-it__/graphics/icons/suction-tower.png", icon_size = 64 }},
 		subgroup = "production-machine",
 		stack_size = 25
 	},

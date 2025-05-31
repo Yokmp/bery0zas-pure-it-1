@@ -187,7 +187,7 @@ data:extend({
 		energy_required = 1,
 		category = "bery0zas-air-filtering-suction",
 		enabled = false,
-		ingredients = { { type = "fluid", name = "bery0zas-pollution", amount = 1, fluidbox_index = 1 } },
+		-- ingredients = { { type = "fluid", name = "bery0zas-pollution", amount = 1, fluidbox_index = 1 } },
 		icons = { {
 			icon = "__bery0zas-pure-it__/graphics/icons/fluid/steam.png",
 			icon_size = 64,

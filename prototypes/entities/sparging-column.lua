@@ -3,11 +3,13 @@ data:extend(
 		{
 			type = "assembling-machine",
 			name = "bery0zas-sparging-column",
-			icons = {{icon = "__bery0zas-pure-it__/graphics/icons/sparging-column.png", icon_size = 32,}},
+			icons = {
+				{icon = "__bery0zas-pure-it__/graphics/icons/sparging-column.png", icon_size = 32,},
+				{icon = "__bery0zas-pure-it__/graphics/icons/sparging-column-tint.png", icon_size = 32,},
+			},
 			flags = { "placeable-neutral", "placeable-player", "player-creation" },
 			minable = { mining_time = 0.5, result = "bery0zas-sparging-column" },
-			--fast_replaceable_group = "air-sucker",
-			--next_upgrade = "air-sucker-2",
+			fast_replaceable_group = "bery0zas-sparging-column",
 			max_health = 150,
 			corpse = "medium-remnants",
 			--alert_icon_shift = util.by_pixel(-3, -12),
@@ -192,6 +194,7 @@ data:extend(
 			{
 				type = "electric",
 				usage_priority = "secondary-input",
+				emissions_per_minute = { pollution = 6 }
 			},
 			energy_usage = "100kW",
 			return_ingredients_on_change = true,

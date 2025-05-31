@@ -70,26 +70,28 @@ log("New entity: "..template.base_name)
 		local name = template.base_name
 		local color_tint = bery0zas.common.level_tint[i]
 
-		proto.name = name .. "-" .. i
+		proto.name = name .. "-" .. tostring(i)
 		proto.localised_name = {"", {"entity-name."..template.base_name} }
 		proto.crafting_speed = bery0zas.common.crafting_speeds[i] * template.crafting_speed_multiplier
-		proto.minable = { mining_time = proto.crafting_speed, result = proto.name }
+		proto.minable.result = proto.name
 
-		if (num_tiers > 1 and i < num_tiers) then
-			proto.next_upgrade = name .. "-" .. (i + 1)
+
+		if (num_tiers > 1 ) then
+			proto.next_upgrade = (i < num_tiers) and name .. "-" .. tostring(i + 1) or ""
 			proto.localised_name[3] = " MK"..tostring(i)
+			proto.energy_source.emissions_per_minute.pollution = proto.energy_source.emissions_per_minute.pollution * i
 		end
 
 		if (template.has_tint) then
-			proto.icons[1].tint = color_tint
+			proto.icons[2].tint = color_tint
 
-			for _, v in pairs(proto.graphics_set.animation or proto.graphics_set.idle_animation) do
+			for _, v in pairs(proto.graphics_set.animation) do
 				v.layers[2].tint = color_tint -- tint layer
 			end
 		elseif (num_tiers > 1) then
-			proto.icons[1].tint = color_tint -- east layer
+			proto.icons[2].tint = color_tint
 
-			for _, v in pairs(proto.graphics_set.animation or proto.graphics_set.idle_animation) do
+			for _, v in pairs(proto.graphics_set.animation) do
 				v.layers[1].tint = color_tint -- east layer
 			end
 		end
@@ -111,7 +113,7 @@ log("New entity: "..template.base_name)
 		if (i > 1) then
 			recipe.ingredients = template.recipe_tiers[i]
 			recipe.localised_name[3] = " MK"..tostring(i)
-			table.insert(recipe.ingredients, { type = "item", name = name .. "-" .. (i - 1), amount = 1 })
+			table.insert(recipe.ingredients, { type = "item", name = name .. "-" .. tostring(i - 1), amount = 1 })
 			table.insert(recipe.results, { type = "item", name = proto.name, amount = 1 })
 		end
 
@@ -169,7 +171,6 @@ end
 ---@param technology string
 ---@param recipe_name string
 function bery0zas.functions.add_technology_recipe(technology, recipe_name)
-
 	table.insert(data.raw.technology[technology].effects, {
 		type = "unlock-recipe",
 		recipe = recipe_name
@@ -203,19 +204,17 @@ end
 ---@param entity { type: string, name: string, tier?: number|string }
 ---@param emission_table { pollution: number, energy_usage?: string }
 function bery0zas.functions.alter_emissions(entity, emission_table)
+
 	entity.tier = entity.tier and tostring(entity.tier) or "1"
 	entity.name = entity.name.."-"..entity.tier
 
 	log("new pollution: "..entity.name.." - "..emission_table.pollution)
 	if emission_table.energy_usage then log("new energy_usage: "..entity.name.." - "..emission_table.energy_usage) end
 
-	if not type(emission_table.energy_usage) == "string" then emission_table.energy_usage = "1W" end
-
-
-	data.raw[entity.type][entity.name].energy_usage = emission_table.energy_usage
+	if type(emission_table.energy_usage) == "string" then
+		data.raw[entity.type][entity.name].energy_usage = emission_table.energy_usage
+	end
 	data.raw[entity.type][entity.name].energy_source.emissions_per_minute = {pollution = emission_table.pollution}
-
-log(serpent.block(data.raw[entity.type][entity.name].energy_source))
 end
 
 

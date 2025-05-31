@@ -5,7 +5,8 @@ data:extend(
 		name = "bery0zas-pure-it-pollutefromboxes",
 		setting_type = "startup",
 		default_value = true,
-		order = "a[repollute]-a[switch]"
+		order = "a[repollute]-a[switch]",
+		hidden = true
 	},
 	{
 		type = "int-setting",
