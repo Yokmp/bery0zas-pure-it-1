@@ -208,13 +208,13 @@ function bery0zas.functions.alter_emissions(entity, emission_table)
 	entity.tier = entity.tier and tostring(entity.tier) or "1"
 	entity.name = entity.name.."-"..entity.tier
 
-	log("new pollution: "..entity.name.." - "..emission_table.pollution)
+	log("new pollution: "..entity.name.." - "..emission_table.pollution * tonumber(entity.tier))
 	if emission_table.energy_usage then log("new energy_usage: "..entity.name.." - "..emission_table.energy_usage) end
 
 	if type(emission_table.energy_usage) == "string" then
 		data.raw[entity.type][entity.name].energy_usage = emission_table.energy_usage
 	end
-	data.raw[entity.type][entity.name].energy_source.emissions_per_minute = {pollution = emission_table.pollution}
+	data.raw[entity.type][entity.name].energy_source.emissions_per_minute = {pollution = emission_table.pollution * tonumber(entity.tier)}
 end
 
 

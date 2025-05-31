@@ -12,7 +12,7 @@ data:extend(
 		type = "int-setting",
 		name = "bery0zas-pure-it-amountofcollectedpollution",
 		setting_type = "startup",
-		default_value = 50,
+		default_value = 25,
 		minimum_value = 0,
 		maximum_value = 1000,
 		order = "a[repollute]-b[amount]"

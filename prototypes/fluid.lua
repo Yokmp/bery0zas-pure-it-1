@@ -1,18 +1,18 @@
 data:extend({
-	{
-		type = "fluid",
-		name = "bery0zas-pollution",
-		default_temperature = 15,
-		max_temperature = 100,
-		gas_temperature = 0,
-		base_color = { r = 0.1, g = 0.05, b = 0.05 },
-		flow_color = { r = 0.1, g = 0.05, b = 0.05 },
-		icons = { {
-			icon = "__bery0zas-pure-it__/graphics/icons/fluid/pollution.png",
-			icon_size = 64,
-		} },
-		auto_barrel = false
-	},
+	-- {
+	-- 	type = "fluid",
+	-- 	name = "bery0zas-pollution",
+	-- 	default_temperature = 15,
+	-- 	max_temperature = 100,
+	-- 	gas_temperature = 0,
+	-- 	base_color = { r = 0.1, g = 0.05, b = 0.05 },
+	-- 	flow_color = { r = 0.1, g = 0.05, b = 0.05 },
+	-- 	icons = { {
+	-- 		icon = "__bery0zas-pure-it__/graphics/icons/fluid/pollution.png",
+	-- 		icon_size = 64,
+	-- 	} },
+	-- 	auto_barrel = false
+	-- },
 	{
 		type = "fluid",
 		name = "bery0zas-polluted-air",

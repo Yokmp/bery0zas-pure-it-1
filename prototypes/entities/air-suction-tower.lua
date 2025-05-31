@@ -40,7 +40,7 @@ bery0zas.pure_it.entities.air_suction_tower =
 		{
 			type = "electric",
 			usage_priority = "secondary-input",
-      emissions_per_minute = { pollution = -25 } -- orig -50
+      emissions_per_minute = { pollution = -50 }
 		},
 
 		module_specification = { module_slots = 2 },
