@@ -1,12 +1,20 @@
-bery0zas = bery0zas or {}
 
 bery0zas.pure_it.entities.air_absorber =
 {
-	base_name = "bery0zas-air-absorber",
+	name = "bery0zas-air-absorber",
+	tiers = 3,
+	has_tint = true,
+	crafting_speed_multiplier = 1,
+	energy_usage = 100,
+	energy_units = "kW",
 
 	entity =
 	{
 		type = "assembling-machine",
+		icons = {
+			{ icon = "__bery0zas-pure-it-updated__/graphics/icons/absorber.png", icon_size = 64},
+			{ icon = "__bery0zas-pure-it-updated__/graphics/icons/absorber-tint.png", icon_size = 64},
+			},
 		flags = { "placeable-neutral", "placeable-player", "player-creation" },
 		minable = { mining_time = 0.5, result = "bery0zas-air-absorber" },
 		fast_replaceable_group = "bery0zas-air-absorber",
@@ -58,12 +66,8 @@ bery0zas.pure_it.entities.air_absorber =
 			emissions_per_minute = { pollution = 6 }
 		},
 
-		module_specification = { module_slots = 2 },
+		module_slots = 2,
 		allowed_effects = { "consumption", "speed" },
-		icons = {
-			{ icon = "__bery0zas-pure-it__/graphics/icons/absorber.png", icon_size = 64},
-			{ icon = "__bery0zas-pure-it__/graphics/icons/absorber-tint.png", icon_size = 64},
-			},
 		integration_patch_render_layer = "lower-object-above-shadow",
 		match_animation_speed_to_activity = true,
 		graphics_set =
@@ -76,7 +80,7 @@ bery0zas.pure_it.entities.air_absorber =
 					layers =
 					{
 						{
-							filename = "__bery0zas-pure-it__/graphics/entity/absorber/hr-absorber-east.png",
+							filename = "__bery0zas-pure-it-updated__/graphics/entity/absorber/hr-absorber-east.png",
 							priority = "extra-high",
 							width = 448,
 							height = 448,
@@ -86,7 +90,7 @@ bery0zas.pure_it.entities.air_absorber =
 							scale = 0.5
 						},
 						{
-							filename = "__bery0zas-pure-it__/graphics/entity/absorber/hr-absorber-east-tint.png",
+							filename = "__bery0zas-pure-it-updated__/graphics/entity/absorber/hr-absorber-east-tint.png",
 							priority = "extra-high",
 							blend_mode = "normal",
 							width = 448,
@@ -98,7 +102,7 @@ bery0zas.pure_it.entities.air_absorber =
 							scale = 0.5
 						},
 						{
-							filename = "__bery0zas-pure-it__/graphics/entity/absorber/hr-absorber-east-shadow.png",
+							filename = "__bery0zas-pure-it-updated__/graphics/entity/absorber/hr-absorber-east-shadow.png",
 							priority = "medium",
 							width = 448,
 							height = 448,
@@ -116,7 +120,7 @@ bery0zas.pure_it.entities.air_absorber =
 					layers =
 					{
 						{
-							filename = "__bery0zas-pure-it__/graphics/entity/absorber/hr-absorber-north.png",
+							filename = "__bery0zas-pure-it-updated__/graphics/entity/absorber/hr-absorber-north.png",
 							priority = "extra-high",
 							width = 448,
 							height = 448,
@@ -127,7 +131,7 @@ bery0zas.pure_it.entities.air_absorber =
 							scale = 0.5
 						},
 						{
-							filename = "__bery0zas-pure-it__/graphics/entity/absorber/hr-absorber-north-tint.png",
+							filename = "__bery0zas-pure-it-updated__/graphics/entity/absorber/hr-absorber-north-tint.png",
 							priority = "extra-high",
 							blend_mode = "normal",
 							width = 448,
@@ -139,7 +143,7 @@ bery0zas.pure_it.entities.air_absorber =
 							scale = 0.5
 						},
 						{
-							filename = "__bery0zas-pure-it__/graphics/entity/absorber/hr-absorber-north-shadow.png",
+							filename = "__bery0zas-pure-it-updated__/graphics/entity/absorber/hr-absorber-north-shadow.png",
 							priority = "medium",
 							width = 448,
 							height = 448,
@@ -157,7 +161,7 @@ bery0zas.pure_it.entities.air_absorber =
 					layers =
 					{
 						{
-							filename = "__bery0zas-pure-it__/graphics/entity/absorber/hr-absorber-west.png",
+							filename = "__bery0zas-pure-it-updated__/graphics/entity/absorber/hr-absorber-west.png",
 							priority = "extra-high",
 							width = 448,
 							height = 448,
@@ -168,7 +172,7 @@ bery0zas.pure_it.entities.air_absorber =
 							scale = 0.5
 						},
 						{
-							filename = "__bery0zas-pure-it__/graphics/entity/absorber/hr-absorber-west-tint.png",
+							filename = "__bery0zas-pure-it-updated__/graphics/entity/absorber/hr-absorber-west-tint.png",
 							priority = "extra-high",
 							blend_mode = "normal",
 							width = 448,
@@ -180,7 +184,7 @@ bery0zas.pure_it.entities.air_absorber =
 							scale = 0.5
 						},
 						{
-							filename = "__bery0zas-pure-it__/graphics/entity/absorber/hr-absorber-west-shadow.png",
+							filename = "__bery0zas-pure-it-updated__/graphics/entity/absorber/hr-absorber-west-shadow.png",
 							priority = "medium",
 							width = 448,
 							height = 448,
@@ -198,7 +202,7 @@ bery0zas.pure_it.entities.air_absorber =
 					layers =
 					{
 						{
-							filename = "__bery0zas-pure-it__/graphics/entity/absorber/hr-absorber-south.png",
+							filename = "__bery0zas-pure-it-updated__/graphics/entity/absorber/hr-absorber-south.png",
 							priority = "extra-high",
 							width = 448,
 							height = 448,
@@ -209,7 +213,7 @@ bery0zas.pure_it.entities.air_absorber =
 							scale = 0.5
 						},
 						{
-							filename = "__bery0zas-pure-it__/graphics/entity/absorber/hr-absorber-south-tint.png",
+							filename = "__bery0zas-pure-it-updated__/graphics/entity/absorber/hr-absorber-south-tint.png",
 							priority = "extra-high",
 							blend_mode = "normal",
 							width = 448,
@@ -221,7 +225,7 @@ bery0zas.pure_it.entities.air_absorber =
 							scale = 0.5
 						},
 						{
-							filename = "__bery0zas-pure-it__/graphics/entity/absorber/hr-absorber-south-shadow.png",
+							filename = "__bery0zas-pure-it-updated__/graphics/entity/absorber/hr-absorber-south-shadow.png",
 							priority = "medium",
 							width = 448,
 							height = 448,
@@ -247,20 +251,15 @@ bery0zas.pure_it.entities.air_absorber =
 		}
 	},
 
-	has_tint = true,
-	crafting_speed_multiplier = 1,
-	energy_usage = 100,
-	energy_units = "kW",
-
 	item =
 	{
 		type = "item",
-		icons = { { icon = "__bery0zas-pure-it__/graphics/icons/absorber.png", icon_size = 64, tint = { r = 1, g = 1, b = 1, a = 1 } } },
+		icons = { { icon = "__bery0zas-pure-it-updated__/graphics/icons/absorber.png", icon_size = 64, tint = { r = 1, g = 1, b = 1, a = 1 } } },
 		subgroup = "production-machine",
 		stack_size = 25
 	},
 
-	base_recipe =
+	recipe =
 	{
 		type = "recipe",
 		category = "bery0zas-air-filtering-machine",
@@ -274,7 +273,7 @@ bery0zas.pure_it.entities.air_absorber =
 			{ type = "item", name = "engine-unit",  			amount = 1 },
 			{ type = "item", name = "electronic-circuit",	amount = 3 },
 		},
-		reults =
+		results =
 		{
 			{ type = "item", name = "bery0zas-air-absorber", amount = 1 }
 		}

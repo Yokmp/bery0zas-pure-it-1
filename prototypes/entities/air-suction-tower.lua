@@ -1,12 +1,20 @@
-bery0zas = bery0zas or {}
 
 bery0zas.pure_it.entities.air_suction_tower =
 {
-	base_name = "bery0zas-air-suction-tower",
+	name = "bery0zas-air-suction-tower",
+	tiers = 3,
+	has_tint = true,
+	crafting_speed_multiplier = 0.25,
+	energy_usage = 100,
+	energy_units = "kW",
 
 	entity =
 	{
 		type = "assembling-machine",
+		icons = {
+			{ icon = "__bery0zas-pure-it-updated__/graphics/icons/suction-tower.png", icon_size = 64 },
+			{ icon = "__bery0zas-pure-it-updated__/graphics/icons/suction-tower-tint.png", icon_size = 64}
+		},
 		flags = { "placeable-neutral", "placeable-player", "player-creation" },
 		minable = { mining_time = 0.5, result = "bery0zas-air-suction-tower" },
 		fast_replaceable_group = "bery0zas-air-suction-tower",
@@ -45,10 +53,6 @@ bery0zas.pure_it.entities.air_suction_tower =
 
 		module_specification = { module_slots = 2 },
 		allowed_effects = { "consumption", "speed" },
-		icons = {
-			{ icon = "__bery0zas-pure-it__/graphics/icons/suction-tower.png", icon_size = 64 },
-			{ icon = "__bery0zas-pure-it__/graphics/icons/suction-tower-tint.png", icon_size = 64}
-		},
 		integration_patch_render_layer = "higher-object-above",
 		--match_animation_speed_to_activity = true,			
 		always_draw_idle_animation = true,
@@ -62,7 +66,7 @@ bery0zas.pure_it.entities.air_suction_tower =
 					layers =
 					{
 						{
-							filename = "__bery0zas-pure-it__/graphics/entity/suction-tower/hr-suction-tower-east.png",
+							filename = "__bery0zas-pure-it-updated__/graphics/entity/suction-tower/hr-suction-tower-east.png",
 							priority = "extra-high",
 							width = 640,
 							height = 640,
@@ -73,7 +77,7 @@ bery0zas.pure_it.entities.air_suction_tower =
 							scale = 0.5
 						},
 						{
-							filename = "__bery0zas-pure-it__/graphics/entity/suction-tower/hr-suction-tower-east-tint.png",
+							filename = "__bery0zas-pure-it-updated__/graphics/entity/suction-tower/hr-suction-tower-east-tint.png",
 							priority = "extra-high",
 							flags = { "mask" },
 							width = 640,
@@ -85,7 +89,7 @@ bery0zas.pure_it.entities.air_suction_tower =
 							scale = 0.5
 						},
 						{
-							filename = "__bery0zas-pure-it__/graphics/entity/suction-tower/hr-suction-tower-east-shadow.png",
+							filename = "__bery0zas-pure-it-updated__/graphics/entity/suction-tower/hr-suction-tower-east-shadow.png",
 							priority = "medium",
 							width = 640,
 							height = 640,
@@ -103,7 +107,7 @@ bery0zas.pure_it.entities.air_suction_tower =
 					layers =
 					{
 						{
-							filename = "__bery0zas-pure-it__/graphics/entity/suction-tower/hr-suction-tower-north.png",
+							filename = "__bery0zas-pure-it-updated__/graphics/entity/suction-tower/hr-suction-tower-north.png",
 							priority = "extra-high",
 							width = 640,
 							height = 640,
@@ -114,7 +118,7 @@ bery0zas.pure_it.entities.air_suction_tower =
 							scale = 0.5
 						},
 						{
-							filename = "__bery0zas-pure-it__/graphics/entity/suction-tower/hr-suction-tower-north-tint.png",
+							filename = "__bery0zas-pure-it-updated__/graphics/entity/suction-tower/hr-suction-tower-north-tint.png",
 							priority = "extra-high",
 							flags = { "mask" },
 							width = 640,
@@ -126,7 +130,7 @@ bery0zas.pure_it.entities.air_suction_tower =
 							scale = 0.5
 						},
 						{
-							filename = "__bery0zas-pure-it__/graphics/entity/suction-tower/hr-suction-tower-north-shadow.png",
+							filename = "__bery0zas-pure-it-updated__/graphics/entity/suction-tower/hr-suction-tower-north-shadow.png",
 							priority = "medium",
 							width = 640,
 							height = 640,
@@ -144,7 +148,7 @@ bery0zas.pure_it.entities.air_suction_tower =
 					layers =
 					{
 						{
-							filename = "__bery0zas-pure-it__/graphics/entity/suction-tower/hr-suction-tower-west.png",
+							filename = "__bery0zas-pure-it-updated__/graphics/entity/suction-tower/hr-suction-tower-west.png",
 							priority = "extra-high",
 							width = 640,
 							height = 640,
@@ -155,7 +159,7 @@ bery0zas.pure_it.entities.air_suction_tower =
 							scale = 0.5
 						},
 						{
-							filename = "__bery0zas-pure-it__/graphics/entity/suction-tower/hr-suction-tower-west-tint.png",
+							filename = "__bery0zas-pure-it-updated__/graphics/entity/suction-tower/hr-suction-tower-west-tint.png",
 							priority = "extra-high",
 							flags = { "mask" },
 							width = 640,
@@ -167,7 +171,7 @@ bery0zas.pure_it.entities.air_suction_tower =
 							scale = 0.5
 						},
 						{
-							filename = "__bery0zas-pure-it__/graphics/entity/suction-tower/hr-suction-tower-west-shadow.png",
+							filename = "__bery0zas-pure-it-updated__/graphics/entity/suction-tower/hr-suction-tower-west-shadow.png",
 							priority = "medium",
 							width = 640,
 							height = 640,
@@ -185,7 +189,7 @@ bery0zas.pure_it.entities.air_suction_tower =
 					layers =
 					{
 						{
-							filename = "__bery0zas-pure-it__/graphics/entity/suction-tower/hr-suction-tower-south.png",
+							filename = "__bery0zas-pure-it-updated__/graphics/entity/suction-tower/hr-suction-tower-south.png",
 							priority = "extra-high",
 							width = 640,
 							height = 640,
@@ -196,7 +200,7 @@ bery0zas.pure_it.entities.air_suction_tower =
 							scale = 0.5
 						},
 						{
-							filename = "__bery0zas-pure-it__/graphics/entity/suction-tower/hr-suction-tower-south-tint.png",
+							filename = "__bery0zas-pure-it-updated__/graphics/entity/suction-tower/hr-suction-tower-south-tint.png",
 							priority = "extra-high",
 							flags = { "mask" },
 							width = 640,
@@ -208,7 +212,7 @@ bery0zas.pure_it.entities.air_suction_tower =
 							scale = 0.5
 						},
 						{
-							filename = "__bery0zas-pure-it__/graphics/entity/suction-tower/hr-suction-tower-south-shadow.png",
+							filename = "__bery0zas-pure-it-updated__/graphics/entity/suction-tower/hr-suction-tower-south-shadow.png",
 							priority = "medium",
 							width = 640,
 							height = 640,
@@ -234,20 +238,15 @@ bery0zas.pure_it.entities.air_suction_tower =
 		}
 	},
 
-	has_tint = true,
-	crafting_speed_multiplier = 0.25,
-	energy_usage = 100,
-	energy_units = "kW",
-
 	item =
 	{
 		type = "item",
-		icons = {{ icon = "__bery0zas-pure-it__/graphics/icons/suction-tower.png", icon_size = 64 }},
+		icons = {{ icon = "__bery0zas-pure-it-updated__/graphics/icons/suction-tower.png", icon_size = 64 }},
 		subgroup = "production-machine",
 		stack_size = 25
 	},
 
-	base_recipe =
+	recipe =
 	{
 		type = "recipe",
 		category = "bery0zas-air-filtering-machine",
@@ -260,7 +259,7 @@ bery0zas.pure_it.entities.air_suction_tower =
 			{ type = "item", name = "electronic-circuit", amount = 5 },
 			{ type = "item", name = "engine-unit",        amount = 5 }
 		},
-		reults =
+		results =
 		{
 			{ type = "item", name = "bery0zas-air-suction-tower", amount = 1 }
 		}

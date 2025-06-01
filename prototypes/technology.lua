@@ -6,7 +6,7 @@ data:extend(
 			--localised_name = {"technology-name.air-purification-1"},
 			--localised_description = {"technology-description.air-purification-1"},
 			icon_size = 128,
-			icon = "__bery0zas-pure-it__/graphics/technology/air-purification-1.png",
+			icon = "__bery0zas-pure-it-updated__/graphics/technology/air-purification-1.png",
 			effects =
 			{
 				{
@@ -72,7 +72,7 @@ data:extend(
 			--localised_name = {"technology-name.air-purification-2"},
 			--localised_description = {"technology-description.air-purification-2"},
 			icon_size = 128,
-			icon = "__bery0zas-pure-it__/graphics/technology/air-purification-2.png",
+			icon = "__bery0zas-pure-it-updated__/graphics/technology/air-purification-2.png",
 			effects =
 			{
 				{
@@ -85,7 +85,7 @@ data:extend(
 				},
 				{
 					type = "unlock-recipe",
-					recipe = "bery0zas-sparging-column"
+					recipe = "bery0zas-sparging-column-1"
 				},
 				{
 					type = "unlock-recipe",
@@ -139,7 +139,7 @@ data:extend(
 			--localised_name = {"technology-name.air-purification-3"},
 			--localised_description = {"technology-description.air-purification-3"},
 			icon_size = 128,
-			icon = "__bery0zas-pure-it__/graphics/technology/air-purification-3.png",
+			icon = "__bery0zas-pure-it-updated__/graphics/technology/air-purification-3.png",
 			effects =
 			{
 				{

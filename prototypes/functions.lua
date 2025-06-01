@@ -1,7 +1,7 @@
 function bery0zas.functions.pipe_pictures()
 	return {
 		north = {
-			filename = "__bery0zas-pure-it__/graphics/entity/pipe-covers/hr-pipe-cover-empty.png",
+			filename = "__bery0zas-pure-it-updated__/graphics/entity/pipe-covers/hr-pipe-cover-empty.png",
 			priority = "extra-high",
 			width = 64,
 			height = 64,
@@ -9,7 +9,7 @@ function bery0zas.functions.pipe_pictures()
 			scale = 0.5
 		},
 		east = {
-			filename = "__bery0zas-pure-it__/graphics/entity/pipe-covers/hr-pipe-cover-empty.png",
+			filename = "__bery0zas-pure-it-updated__/graphics/entity/pipe-covers/hr-pipe-cover-empty.png",
 			priority = "extra-high",
 			width = 64,
 			height = 64,
@@ -17,7 +17,7 @@ function bery0zas.functions.pipe_pictures()
 			scale = 0.5
 		},
 		south = {
-			filename = "__bery0zas-pure-it__/graphics/entity/pipe-covers/hr-pipe-cover-south.png",
+			filename = "__bery0zas-pure-it-updated__/graphics/entity/pipe-covers/hr-pipe-cover-south.png",
 			priority = "extra-high",
 			width = 64,
 			height = 64,
@@ -25,7 +25,7 @@ function bery0zas.functions.pipe_pictures()
 			scale = 0.5
 		},
 		west = {
-			filename = "__bery0zas-pure-it__/graphics/entity/pipe-covers/hr-pipe-cover-empty.png",
+			filename = "__bery0zas-pure-it-updated__/graphics/entity/pipe-covers/hr-pipe-cover-empty.png",
 			priority = "extra-high",
 			width = 64,
 			height = 64,
@@ -41,7 +41,7 @@ end
 ---@return boolean
 --- Checks if table and key values exist
 --- <br> ``address_exists(table, "foo", "bar"...)``
-function address_exists(t, ...)
+function bery0zas.functions.address_exists(t, ...)
   for i = 1, select("#", ...) do
     if t == nil then return false end
     t = t[select(i, ...)]
@@ -64,17 +64,16 @@ end
 ---@param template PureItTemplate
 ---@param num_tiers number
 function bery0zas.functions.register_entity(template, num_tiers)
-log("New entity: "..template.base_name)
+log("New entity: "..template.name)
 	for i = 1, num_tiers, 1 do
 		local proto = util.table.deepcopy(template.entity)
-		local name = template.base_name
+		local name = template.name
 		local color_tint = bery0zas.common.level_tint[i]
 
 		proto.name = name .. "-" .. tostring(i)
-		proto.localised_name = {"", {"entity-name."..template.base_name} }
+		proto.localised_name = {"", {"entity-name."..template.name} }
 		proto.crafting_speed = bery0zas.common.crafting_speeds[i] * template.crafting_speed_multiplier
 		proto.minable.result = proto.name
-
 
 		if (num_tiers > 1 ) then
 			proto.next_upgrade = (i < num_tiers) and name .. "-" .. tostring(i + 1) or ""
@@ -103,18 +102,18 @@ log("New entity: "..template.base_name)
 		item.icons = proto.icons
 		item.place_result = proto.name
 
-		local recipe = util.table.deepcopy(template.base_recipe)
+		local recipe = util.table.deepcopy(template.recipe)
 		recipe.name = proto.name
-		recipe.localised_name = {"", {"entity-name."..template.base_name} }
+		recipe.localised_name = {"", {"entity-name."..template.name} }
 		recipe.icons = proto.icons
 		recipe.energy_required = recipe.energy_required * proto.crafting_speed
 		recipe.results = recipe.results or {}
+		recipe.results[1] = {type = "item", name = proto.name, amount = 1 }
 
 		if (i > 1) then
 			recipe.ingredients = template.recipe_tiers[i]
 			recipe.localised_name[3] = " MK"..tostring(i)
 			table.insert(recipe.ingredients, { type = "item", name = name .. "-" .. tostring(i - 1), amount = 1 })
-			table.insert(recipe.results, { type = "item", name = proto.name, amount = 1 })
 		end
 
 		data:extend({ proto, item, recipe })
@@ -198,9 +197,6 @@ end
 
 ---Emissions are calculated by multiplying emissions * energy usage
 ---<br> This function does _not_ calculate this.
----<br>
----<br> https://lua-api.factorio.com/latest/prototypes/ElectricEnergyInterfacePrototype.html#energy_usage
----<br> https://lua-api.factorio.com/latest/types/BaseEnergySource.html#emissions_per_minute
 ---@param entity { type: string, name: string, tier?: number|string }
 ---@param emission_table { pollution: number, energy_usage?: string }
 function bery0zas.functions.alter_emissions(entity, emission_table)
@@ -217,25 +213,3 @@ function bery0zas.functions.alter_emissions(entity, emission_table)
 	data.raw[entity.type][entity.name].energy_source.emissions_per_minute = {pollution = emission_table.pollution * tonumber(entity.tier)}
 end
 
-
---TODO: 
---adds space age stuff
---<br> `"pressure"` `"gravity"`
---<br> max 1.79769313486229997955945236754e29
----@param entity { type: string, name: string }
----@param property { name: string, values: {min: number, max: number} }
-function bery0zas.functions.spaceage(entity, property)
-if not mods["space-age"] then return end
-
-	if data.raw[entity.type][entity.name].surface_conditions then
-		local surface_conditions = data.raw[entity.type][entity.name].surface_conditions or {{property = property.name}}
-		local size = #surface_conditions
-
-		for index = 1, size, 1 do
-			if surface_conditions[index].property == property.name then
-				surface_conditions[index].min = math.max(property.values.min, 0)
-				surface_conditions[index].max = math.max(property.values.max, 0)
-			end
-		end
-	end
-end

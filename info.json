@@ -1,10 +1,10 @@
 {
-  "name": "bery0zas-pure-it",
-  "version": "1.3.1",
-  "title": "Bery0za's Pure It",
-  "author": "Bery0za",
+  "name": "bery0zas-pure-it-updated",
+  "version": "2.0.0",
+  "title": "Bery0za's Pure It Updated",
+  "author": "Bery0za, Yokmp",
   "contact": "bereznevtree@yandex.ru",
-  "homepage": "https://bery0za.com/2020/10/20/pure-it/",
+  "homepage": "https://github.com/Yokmp/bery0zas-pure-it-1/tree/master",
   "factorio_version": "2.0",
   "dependencies": [
     "base >= 2.0",
@@ -12,5 +12,5 @@
     "? bobplates >= 2.0.2",
     "? space-age"
   ],
-  "description": "Real world air filtering!"
+  "description": "Real world air filtering for 2.0!"
 }

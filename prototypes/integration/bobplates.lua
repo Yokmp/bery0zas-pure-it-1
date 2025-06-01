@@ -4,8 +4,8 @@ bery0zas.functions.alter_recipe("bery0zas-spray-surface-recycling", "energy_requ
 bery0zas.functions.alter_recipe("bery0zas-spray-surface-recycling", "ingredients", "name", "bery0zas-polluted-spray-surface", "amount", 3)
 bery0zas.functions.alter_recipe("bery0zas-spray-surface-recycling", "results", "name", "bery0zas-spray-surface", "amount", 3)
 
-bery0zas.functions.alter_recipe("bery0zas-oxygen-sparging", "ingredients", "name", "bery0zas-oxygen", "name", "oxygen")
-bery0zas.functions.alter_recipe("bery0zas-oxygen-sparging", "ingredients", "name", "oxygen", "amount", 100)
+bery0zas.functions.alter_recipe("bery0zas-oxygen-sparging", "ingredients", "name", "bery0zas-oxygen", "name", "bob-oxygen")
+bery0zas.functions.alter_recipe("bery0zas-oxygen-sparging", "ingredients", "name", "bob-oxygen", "amount", 100)
 bery0zas.functions.alter_recipe("bery0zas-oxygen-sparging", "results", "name", "bery0zas-oxygen-sparged-water", "amount", 20)
 
 bery0zas.functions.alter_recipe("bery0zas-oxygen-sparged-water-absorption", "ingredients", "name", "bery0zas-oxygen-sparged-water", "amount", 8)

@@ -1,0 +1,16 @@
+{
+    "item":
+    [
+        ["bery0zas-sparging-column","bery0zas-sparging-column-1"]
+    ],
+	"entity":
+    [
+        ["bery0zas-sparging-column","bery0zas-sparging-column-1"]
+    ],
+    "recipe":
+    [
+        ["bery0zas-sparging-column","bery0zas-sparging-column-1"],
+        ["bery0zas-sparging-column-recycling","bery0zas-sparging-column-1-recycling"]
+    ]
+}
+

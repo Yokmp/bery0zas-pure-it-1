@@ -1,28 +1,13 @@
 data:extend({
 	{
 		type = "recipe",
-		name = "bery0zas-sparging-column",
-		category = "bery0zas-air-filtering-machine",
-		enabled = false,
-		energy_required = 10.0,
-		ingredients = {
-			{ type = "item", name = "electric-engine-unit", amount = 3 },
-			{ type = "item", name = "electronic-circuit",   amount = 3 },
-			{ type = "item", name = "iron-plate",           amount = 10 },
-			{ type = "item", name = "steel-plate",          amount = 10 },
-			{ type = "item", name = "pipe",                 amount = 10 }
-		},
-		results = { { type = "item", name = "bery0zas-sparging-column", amount = 1 } }
-	},
-	{
-		type = "recipe",
 		name = "bery0zas-spray-surface",
 		energy_required = 10,
 		category = "bery0zas-air-filtering-item",
 		enabled = false,
 		ingredients = { { type = "item", name = "iron-plate", amount = 2 }, { type = "item", name = "iron-stick", amount = 6 } },
 		icons = { {
-			icon = "__bery0zas-pure-it__/graphics/icons/spray-surface.png",
+			icon = "__bery0zas-pure-it-updated__/graphics/icons/spray-surface.png",
 			icon_size = 64,
 		} },
 		subgroup = "intermediate-product",
@@ -36,7 +21,7 @@ data:extend({
 		enabled = false,
 		ingredients = { { type = "item", name = "iron-ore", amount = 20 } },
 		icons = { {
-			icon = "__bery0zas-pure-it__/graphics/icons/recipe/iron-halite-extraction.png",
+			icon = "__bery0zas-pure-it-updated__/graphics/icons/recipe/iron-halite-extraction.png",
 			icon_size = 64,
 		} },
 		subgroup = "raw-resource",
@@ -54,7 +39,7 @@ data:extend({
 		enabled = false,
 		ingredients = { { type = "item", name = "copper-ore", amount = 20 } },
 		icons = { {
-			icon = "__bery0zas-pure-it__/graphics/icons/recipe/copper-halite-extraction.png",
+			icon = "__bery0zas-pure-it-updated__/graphics/icons/recipe/copper-halite-extraction.png",
 			icon_size = 64,
 		} },
 		subgroup = "raw-resource",
@@ -72,7 +57,7 @@ data:extend({
 		enabled = false,
 		ingredients = { { type = "item", name = "iron-plate", amount = 3 }, { type = "item", name = "iron-stick", amount = 8 } },
 		icons = { {
-			icon = "__bery0zas-pure-it__/graphics/icons/adsorption-coil-mk1.png",
+			icon = "__bery0zas-pure-it-updated__/graphics/icons/adsorption-coil-mk1.png",
 			icon_size = 64,
 		} },
 		subgroup = "intermediate-product",
@@ -89,7 +74,7 @@ data:extend({
 			{ type = "item", name = "iron-stick",  amount = 8 }
 		},
 		icons = { {
-			icon = "__bery0zas-pure-it__/graphics/icons/adsorption-coil-mk2.png",
+			icon = "__bery0zas-pure-it-updated__/graphics/icons/adsorption-coil-mk2.png",
 			icon_size = 64,
 		} },
 		subgroup = "intermediate-product",
@@ -107,7 +92,7 @@ data:extend({
 			{ type = "item", name = "bery0zas-activated-carbon",    amount = 1 }
 		},
 		icons = { {
-			icon = "__bery0zas-pure-it__/graphics/icons/adsorption-coil-mk1-with-activated-carbon.png",
+			icon = "__bery0zas-pure-it-updated__/graphics/icons/adsorption-coil-mk1-with-activated-carbon.png",
 			icon_size = 64,
 		} },
 		subgroup = "intermediate-product",
@@ -124,7 +109,7 @@ data:extend({
 			{ type = "item", name = "bery0zas-cellular-carbon",     amount = 1 }
 		},
 		icons = { {
-			icon = "__bery0zas-pure-it__/graphics/icons/adsorption-coil-mk2-with-cellular-carbon.png",
+			icon = "__bery0zas-pure-it-updated__/graphics/icons/adsorption-coil-mk2-with-cellular-carbon.png",
 			icon_size = 64,
 		} },
 		subgroup = "intermediate-product",
@@ -138,7 +123,7 @@ data:extend({
 		enabled = false,
 		ingredients = { { type = "item", name = "bery0zas-polluted-spray-surface", amount = 1 } },
 		icons = { {
-			icon = "__bery0zas-pure-it__/graphics/icons/recipe/polluted-spray-surface-recycling.png",
+			icon = "__bery0zas-pure-it-updated__/graphics/icons/recipe/polluted-spray-surface-recycling.png",
 			icon_size = 64,
 		} },
 		subgroup = "smelting-machine",
@@ -157,7 +142,7 @@ data:extend({
 			{ type = "fluid", name = "sulfuric-acid", amount = 20 }
 		},
 		icons = { {
-			icon = "__bery0zas-pure-it__/graphics/icons/activated-carbon.png",
+			icon = "__bery0zas-pure-it-updated__/graphics/icons/activated-carbon.png",
 			icon_size = 64,
 		} },
 		subgroup = "raw-resource",
@@ -175,7 +160,7 @@ data:extend({
 			{ type = "fluid", name = "petroleum-gas",             amount = 20 }
 		},
 		icons = { {
-			icon = "__bery0zas-pure-it__/graphics/icons/cellular-carbon.png",
+			icon = "__bery0zas-pure-it-updated__/graphics/icons/cellular-carbon.png",
 			icon_size = 64,
 		} },
 		subgroup = "raw-resource",
@@ -189,7 +174,7 @@ data:extend({
 		enabled = false,
 		-- ingredients = { { type = "fluid", name = "bery0zas-pollution", amount = 1, fluidbox_index = 1 } },
 		icons = { {
-			icon = "__bery0zas-pure-it__/graphics/icons/fluid/steam.png",
+			icon = "__bery0zas-pure-it-updated__/graphics/icons/fluid/steam.png",
 			icon_size = 64,
 		} },
 		subgroup = "terrain",
@@ -208,7 +193,7 @@ data:extend({
 			{ type = "fluid", name = "bery0zas-polluted-air", amount = 2, fluidbox_index = 2 }
 		},
 		icons = { {
-			icon = "__bery0zas-pure-it__/graphics/icons/recipe/water-absorption.png",
+			icon = "__bery0zas-pure-it-updated__/graphics/icons/recipe/water-absorption.png",
 			icon_size = 64,
 		} },
 		subgroup = "terrain",
@@ -223,7 +208,7 @@ data:extend({
 		enabled = false,
 		ingredients = {},
 		icons = { {
-			icon = "__bery0zas-pure-it__/graphics/icons/fluid/oxygen.png",
+			icon = "__bery0zas-pure-it-updated__/graphics/icons/fluid/oxygen.png",
 			icon_size = 64,
 		} },
 		subgroup = "fluid-recipes",
@@ -242,7 +227,7 @@ data:extend({
 			{ type = "fluid", name = "bery0zas-oxygen", amount = 10 }
 		},
 		icons = { {
-			icon = "__bery0zas-pure-it__/graphics/icons/recipe/oxygen-sparging.png",
+			icon = "__bery0zas-pure-it-updated__/graphics/icons/recipe/oxygen-sparging.png",
 			icon_size = 64,
 		} },
 		subgroup = "fluid-recipes",
@@ -267,7 +252,7 @@ data:extend({
 			{ type = "fluid", name = "bery0zas-polluted-air",         amount = 4, fluidbox_index = 2 }
 		},
 		icons = { {
-			icon = "__bery0zas-pure-it__/graphics/icons/recipe/oxygen-sparged-water-absorption.png",
+			icon = "__bery0zas-pure-it-updated__/graphics/icons/recipe/oxygen-sparged-water-absorption.png",
 			icon_size = 64,
 		} },
 		subgroup = "terrain",
@@ -286,7 +271,7 @@ data:extend({
 			{ type = "fluid", name = "bery0zas-polluted-air",                   amount = 8,  fluidbox_index = 2 }
 		},
 		icons = { {
-			icon = "__bery0zas-pure-it__/graphics/icons/recipe/sodium-hydroxide-sparged-water-absorption.png",
+			icon = "__bery0zas-pure-it-updated__/graphics/icons/recipe/sodium-hydroxide-sparged-water-absorption.png",
 			icon_size = 64,
 		} },
 		subgroup = "terrain",
@@ -306,7 +291,7 @@ data:extend({
 			{ type = "item",  name = "bery0zas-spray-surface", amount = 2 }
 		},
 		icons = { {
-			icon = "__bery0zas-pure-it__/graphics/icons/recipe/water-absorption-with-spraying.png",
+			icon = "__bery0zas-pure-it-updated__/graphics/icons/recipe/water-absorption-with-spraying.png",
 			icon_size = 64,
 		} },
 		subgroup = "terrain",
@@ -329,7 +314,7 @@ data:extend({
 			{ type = "item",  name = "bery0zas-spray-surface",        amount = 1 }
 		},
 		icons = { {
-			icon = "__bery0zas-pure-it__/graphics/icons/recipe/oxygen-sparged-water-absorption-with-spraying.png",
+			icon = "__bery0zas-pure-it-updated__/graphics/icons/recipe/oxygen-sparged-water-absorption-with-spraying.png",
 			icon_size = 64,
 		} },
 		subgroup = "terrain",
@@ -351,7 +336,7 @@ data:extend({
 			{ type = "item",  name = "bery0zas-halite", amount = 3 }
 		},
 		icons = { {
-			icon = "__bery0zas-pure-it__/graphics/icons/fluid/sodium-hydroxide.png",
+			icon = "__bery0zas-pure-it-updated__/graphics/icons/fluid/sodium-hydroxide.png",
 			icon_size = 64,
 		} },
 		subgroup = "fluid-recipes",
@@ -376,7 +361,7 @@ data:extend({
 			{ type = "fluid", name = "bery0zas-sodium-hydroxide", amount = 10 }
 		},
 		icons = { {
-			icon = "__bery0zas-pure-it__/graphics/icons/recipe/sodium-hydroxide-sparging.png",
+			icon = "__bery0zas-pure-it-updated__/graphics/icons/recipe/sodium-hydroxide-sparging.png",
 			icon_size = 64,
 		} },
 		subgroup = "fluid-recipes",
@@ -402,7 +387,7 @@ data:extend({
 			{ type = "item",  name = "bery0zas-spray-surface",                  amount = 1 }
 		},
 		icons = { {
-			icon = "__bery0zas-pure-it__/graphics/icons/recipe/sodium-hydroxide-sparged-water-absorption-with-spraying.png",
+			icon = "__bery0zas-pure-it-updated__/graphics/icons/recipe/sodium-hydroxide-sparged-water-absorption-with-spraying.png",
 			icon_size = 64,
 		} },
 		subgroup = "terrain",
@@ -420,7 +405,7 @@ data:extend({
 		enabled = false,
 		ingredients = { { type = "fluid", name = "bery0zas-polluted-water", amount = 20 } },
 		icons = { {
-			icon = "__bery0zas-pure-it__/graphics/icons/recipe/polluted-water-recycling.png",
+			icon = "__bery0zas-pure-it-updated__/graphics/icons/recipe/polluted-water-recycling.png",
 			icon_size = 64,
 		} },
 		subgroup = "fluid-recipes",
@@ -445,7 +430,7 @@ data:extend({
 			{ type = "fluid", name = "bery0zas-polluted-air", amount = 3, fluidbox_index = 2 }
 		},
 		icons = { {
-			icon = "__bery0zas-pure-it__/graphics/icons/coal.png",
+			icon = "__bery0zas-pure-it-updated__/graphics/icons/coal.png",
 			icon_size = 64,
 		} },
 		subgroup = "terrain",
@@ -464,7 +449,7 @@ data:extend({
 			{ type = "fluid", name = "bery0zas-polluted-air", amount = 5, fluidbox_index = 2 }
 		},
 		icons = { {
-			icon = "__bery0zas-pure-it__/graphics/icons/fluid/steam.png",
+			icon = "__bery0zas-pure-it-updated__/graphics/icons/fluid/steam.png",
 			icon_size = 64,
 		} },
 		subgroup = "terrain",
@@ -482,7 +467,7 @@ data:extend({
 			{ type = "fluid", name = "bery0zas-polluted-air",                              amount = 8, fluidbox_index = 2 }
 		},
 		icons = { {
-			icon = "__bery0zas-pure-it__/graphics/icons/adsorption-coil-mk1-with-activated-carbon.png",
+			icon = "__bery0zas-pure-it-updated__/graphics/icons/adsorption-coil-mk1-with-activated-carbon.png",
 			icon_size = 64,
 		} },
 		subgroup = "terrain",
@@ -504,7 +489,7 @@ data:extend({
 			{ type = "fluid", name = "bery0zas-polluted-air",                             amount = 12, fluidbox_index = 2 }
 		},
 		icons = { {
-			icon = "__bery0zas-pure-it__/graphics/icons/adsorption-coil-mk2-with-cellular-carbon.png",
+			icon = "__bery0zas-pure-it-updated__/graphics/icons/adsorption-coil-mk2-with-cellular-carbon.png",
 			icon_size = 64,
 		} },
 		subgroup = "terrain",
