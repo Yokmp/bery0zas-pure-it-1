@@ -1,5 +1,7 @@
 bery0zas.pure_it.integration.angelspetrochem = {}
 
+---@diagnostic disable
+
 if not bery0zas.pure_it.triggers["leave-halite"] then
 	bery0zas.functions.remove_technology_recipe("bery0zas-air-purification-3", "bery0zas-iron-halite-extraction")
 	bery0zas.functions.remove_technology_recipe("bery0zas-air-purification-3", "bery0zas-copper-halite-extraction")
