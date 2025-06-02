@@ -5,15 +5,24 @@ require("entities.air-adsorber")
 require("entities.air-suction-tower")
 require("entities.sparging-column")
 
-bery0zas.functions.register_entity(bery0zas.pure_it.entities.air_suction_tower, 3)
-bery0zas.functions.register_entity(bery0zas.pure_it.entities.air_absorber, 3)
-bery0zas.functions.register_entity(bery0zas.pure_it.entities.air_adsorber, 1)
-bery0zas.functions.register_entity(bery0zas.pure_it.entities.sparging_column, 1)
+
+local entities = {
+  bery0zas.pure_it.entities.air_suction_tower,
+  bery0zas.pure_it.entities.air_absorber,
+  bery0zas.pure_it.entities.air_adsorber,
+  bery0zas.pure_it.entities.sparging_column
+}
+
+for _, entity in ipairs(entities) do
+  bery0zas.functions.register_entity(entity)
+  for i = 1, entity.tiers, 1 do
+    bery0zas.functions.update_factoriopedia_simulation(entity.name.."-"..i, entity.factoriopedia)
+  end
+end
 
 
--- log(serpent.block(data.raw["assembling-machine"]["bery0zas-air-adsorber-1"].name))
--- log(serpent.block(data.raw.recipe["bery0zas-air-adsorber-1"]))
--- log(serpent.block(data.raw.item["bery0zas-air-adsorber-1"].name))
--- log(serpent.block(data.raw["assembling-machine"]["bery0zas-sparging-column-1"].name))
--- log(serpent.block(data.raw.recipe["bery0zas-sparging-column-1"]))
--- log(serpent.block(data.raw.item["bery0zas-sparging-column-1"].name))
+
+-- bery0zas.functions.update_factoriopedia_simulation("bery0zas-air-suction-tower-1")
+-- bery0zas.functions.update_factoriopedia_simulation("bery0zas-sparging-column-1")
+-- bery0zas.functions.update_factoriopedia_simulation("bery0zas-air-absorber-1")
+-- bery0zas.functions.update_factoriopedia_simulation("bery0zas-air-adsorber-1")

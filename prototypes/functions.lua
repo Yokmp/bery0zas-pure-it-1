@@ -61,9 +61,10 @@ end
 
 
 ---comment
----@param template PureItTemplate
----@param num_tiers number
+---@param template PureIt.Template
+---@param num_tiers? number
 function bery0zas.functions.register_entity(template, num_tiers)
+		num_tiers = num_tiers or template.tiers
 log("New entity: "..template.name)
 	for i = 1, num_tiers, 1 do
 		local proto = util.table.deepcopy(template.entity)

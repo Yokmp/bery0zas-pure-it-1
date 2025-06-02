@@ -7,6 +7,7 @@ bery0zas.pure_it.entities.sparging_column =
 	crafting_speed_multiplier = 1,
 	energy_usage = 100,
 	energy_units = "kW",
+	factoriopedia = {{0, -1.9}, nil, 0},
 
 	entity =
 	{
@@ -205,7 +206,7 @@ bery0zas.pure_it.entities.sparging_column =
 		close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
 		working_sound =
 		{
-			sound = { { filename = "__base__/sound/electric-furnace.ogg", volume = 0.7 } },
+			sound = { { filename = "__base__/sound/chemical-plant-3.ogg", volume = 0.7 } },
 			idle_sound = { filename = "__base__/sound/idle1.ogg", volume = 0.6 },
 			apparent_volume = 1.5,
 		},
@@ -237,6 +238,6 @@ bery0zas.pure_it.entities.sparging_column =
 
 	recipe_tiers =
 	{
-		{}, --[[@as IngredientPrototype]]
+		{}, --[[@as PureIt.IngredientPrototype]]
 	}
 }

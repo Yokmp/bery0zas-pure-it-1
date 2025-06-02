@@ -5,8 +5,9 @@ bery0zas.pure_it.entities.air_absorber =
 	tiers = 3,
 	has_tint = true,
 	crafting_speed_multiplier = 1,
-	energy_usage = 100,
+	energy_usage = 80,
 	energy_units = "kW",
+	factoriopedia = { {0,0.2}, 1.8},
 
 	entity =
 	{
@@ -245,7 +246,7 @@ bery0zas.pure_it.entities.air_absorber =
 		close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
 		working_sound =
 		{
-			sound = { { filename = "__base__/sound/electric-furnace.ogg", volume = 0.7 } },
+			sound = { { filename = "__base__/sound/heat-exchanger.ogg", volume = 0.7 } },
 			idle_sound = { filename = "__base__/sound/idle1.ogg", volume = 0.6 },
 			apparent_volume = 1.5,
 		}
