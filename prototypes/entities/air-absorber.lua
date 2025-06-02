@@ -14,7 +14,7 @@ bery0zas.pure_it.entities.air_absorber =
 		icons = {
 			{ icon = "__bery0zas-pure-it-updated__/graphics/icons/absorber.png", icon_size = 64},
 			{ icon = "__bery0zas-pure-it-updated__/graphics/icons/absorber-tint.png", icon_size = 64},
-			},
+		},
 		flags = { "placeable-neutral", "placeable-player", "player-creation" },
 		minable = { mining_time = 0.5, result = "bery0zas-air-absorber" },
 		fast_replaceable_group = "bery0zas-air-absorber",
@@ -254,7 +254,7 @@ bery0zas.pure_it.entities.air_absorber =
 	item =
 	{
 		type = "item",
-		icons = { { icon = "__bery0zas-pure-it-updated__/graphics/icons/absorber.png", icon_size = 64, tint = { r = 1, g = 1, b = 1, a = 1 } } },
+		icons = { { icon = "__bery0zas-pure-it-updated__/graphics/icons/absorber.png", icon_size = 64} },
 		subgroup = "production-machine",
 		stack_size = 25
 	},
@@ -281,7 +281,7 @@ bery0zas.pure_it.entities.air_absorber =
 
 	recipe_tiers =
 	{
-		{}, --[[@as IngredientPrototype]]
+		{},
 		{ { type = "item", name = "steel-plate", amount = 10 }, { type = "item", name = "advanced-circuit", amount = 5 } },
 		{ { type = "item", name = "electric-engine-unit", amount = 1 } }
 	}
