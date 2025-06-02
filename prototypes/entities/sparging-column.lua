@@ -7,7 +7,7 @@ bery0zas.pure_it.entities.sparging_column =
 	crafting_speed_multiplier = 1,
 	energy_usage = 100,
 	energy_units = "kW",
-	factoriopedia = {{0, -1.9}, nil, 0},
+	factoriopedia = {position = {0,-2.4}, direction = 0},
 
 	entity =
 	{

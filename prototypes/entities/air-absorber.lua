@@ -7,7 +7,7 @@ bery0zas.pure_it.entities.air_absorber =
 	crafting_speed_multiplier = 1,
 	energy_usage = 80,
 	energy_units = "kW",
-	factoriopedia = { {0,0.2}, 1.8},
+	factoriopedia = {position = {0,0}, zoom = 1.8},
 
 	entity =
 	{

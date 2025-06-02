@@ -22,7 +22,6 @@
 
 
 ---@class PureIt.SimulationDefinition
----@field name string
 ---@field position MapPosition.0
 ---@field zoom number
 ---@field direction defines.direction|integer

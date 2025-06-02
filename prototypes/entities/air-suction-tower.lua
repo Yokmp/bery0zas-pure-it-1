@@ -7,7 +7,7 @@ bery0zas.pure_it.entities.air_suction_tower =
 	crafting_speed_multiplier = 0.25,
 	energy_usage = 100,
 	energy_units = "kW",
-	factoriopedia = {{0,0}},
+	factoriopedia = {position={0,-1.4}},
 
 	entity =
 	{
