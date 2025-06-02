@@ -8,17 +8,27 @@ local function swap_entities(player, entity)
   if not player.selected then game.print("no selection") return end
   local old_position, quality = player.selected.position, player.selected.quality
   local surface = player.selected.surface.name
+	local old_direction = entity.direction
 
 	entity.direction = entity.direction + 4
 	if entity.direction > defines.direction.west then
 		entity.direction = defines.direction.north --[[@as defines.direction]]
 	end
 
-  game.surfaces[surface].play_sound({path="utility/rotated_huge", position=old_position})
-
-	--can be placed?
-
   if player.selected.destroy({player = player}) then -- or die(force?, cause?)
+		if not game.surfaces[surface].can_place_entity({
+			name        			= entity.name,
+      inner_name  			= entity.inner_name,
+      position    			= entity.position,
+      direction   			= entity.direction,
+      force       			= game.forces.player,
+			-- build_check_type  = defines.build_check_type.manual
+		})
+		then
+			entity.direction = old_direction
+			entity.position.x = entity.position.x + 1
+		end
+		game.surfaces[surface].play_sound({path="utility/rotated_huge", position=old_position})
     game.surfaces[surface].create_entity{
       name        = entity.name,
       inner_name  = entity.inner_name,
