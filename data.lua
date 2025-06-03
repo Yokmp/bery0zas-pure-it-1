@@ -26,8 +26,8 @@ if bery0zas.pure_it.triggers["integrate-bobplates"] then require("prototypes.int
 if bery0zas.pure_it.triggers["integrate-angelspetrochem"] then require("prototypes.integration.angelspetrochem") end
 
 local inputs = {
-  {"CONTROL + R",         "bery0zas-rotate-right",      "Rotate Clockwise"},
-  {"CONTROL + SHIFT + R", "bery0zas-rotate-left",       "Rotate AntiClockwise"},
+  {"R",         "bery0zas-rotate-right",      "Rotate Clockwise"},
+  {"SHIFT + R", "bery0zas-rotate-left",       "Rotate AntiClockwise"},
   }
 
 for i,v in ipairs(inputs) do
