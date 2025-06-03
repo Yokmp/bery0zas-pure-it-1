@@ -449,7 +449,7 @@ data:extend({
 			{ type = "fluid", name = "bery0zas-polluted-air", amount = 5, fluidbox_index = 2 }
 		},
 		icons = { {
-			icon = "__bery0zas-pure-it-updated__/graphics/icons/fluid/steam.png",
+			icon = "__base__/graphics/icons/fluid/steam.png",
 			icon_size = 64,
 		} },
 		subgroup = "terrain",
