@@ -174,7 +174,7 @@ data:extend({
 		enabled = false,
 		-- ingredients = { { type = "fluid", name = "bery0zas-pollution", amount = 1, fluidbox_index = 1 } },
 		icons = { {
-			icon = "__bery0zas-pure-it-updated__/graphics/icons/fluid/steam.png",
+			icon = "__base__/graphics/icons/fluid/steam.png",
 			icon_size = 64,
 		} },
 		subgroup = "terrain",
