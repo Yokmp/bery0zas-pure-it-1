@@ -84,6 +84,7 @@ script.on_event("bery0zas-rotate-right", function(event)
 
   local player = game.players[event.player_index] ---@diagnostic disable-line
   if not player.selected or not player.selected.name:match("bery0zas") then return end
+	if player.cursor_stack then return end
 	local entity = player.selected or {}
 
 	local t_entity = {
