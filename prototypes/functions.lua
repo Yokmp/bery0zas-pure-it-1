@@ -59,6 +59,30 @@ function bery0zas.functions.register_recipe_categories(categories)
 	end
 end
 
+---@param values table?
+---@param value any
+---@return boolean
+function bery0zas.functions.array_contains(values, value)
+	for _, item in ipairs(values or {}) do
+		if item == value then return true end
+	end
+	return false
+end
+
+---@param prototype_type string
+---@param prototype_name string
+---@param category string
+---@return boolean
+function bery0zas.functions.add_crafting_category(prototype_type, prototype_name, category)
+	local prototype = data.raw[prototype_type] and data.raw[prototype_type][prototype_name]
+	if not prototype then return false end
+	prototype.crafting_categories = prototype.crafting_categories or {}
+	if not bery0zas.functions.array_contains(prototype.crafting_categories, category) then
+		table.insert(prototype.crafting_categories, category)
+	end
+	return true
+end
+
 
 ---comment
 ---@param template PureIt.Template
@@ -151,12 +175,14 @@ end
 ---@param target_value any
 function bery0zas.functions.alter_recipe(recipe_name, field, sub_field, sub_field_value, target_sub_field, target_value)
 	if not field == "energy_required" and not target_sub_field then return end --TODO: should throw an error in logs
+	local recipe = data.raw.recipe[recipe_name]
+	if not recipe then return end
 
 	if field == "energy_required" then
-		data.raw.recipe[recipe_name][field] = target_value
+		recipe[field] = target_value
 
 	elseif field == "ingredients" or field == "results" then
-		for _, fields in ipairs(data.raw.recipe[recipe_name][field]) do
+		for _, fields in ipairs(recipe[field] or {}) do
 			for f, sub in pairs(fields) do
 				if f == sub_field and sub == sub_field_value then
 					fields[target_sub_field] = target_value ---@diagnostic disable-line
@@ -171,6 +197,8 @@ end
 ---@param technology string
 ---@param recipe_name string
 function bery0zas.functions.add_technology_recipe(technology, recipe_name)
+	if not (data.raw.technology[technology] and data.raw.recipe[recipe_name]) then return end
+	data.raw.technology[technology].effects = data.raw.technology[technology].effects or {}
 	table.insert(data.raw.technology[technology].effects, {
 		type = "unlock-recipe",
 		recipe = recipe_name
@@ -182,6 +210,7 @@ end
 ---@param technology string
 ---@param recipe_name string
 function bery0zas.functions.remove_technology_recipe(technology, recipe_name)
+	if not (data.raw.technology[technology] and data.raw.technology[technology].effects) then return end
 	local index = 1
 	local size = #data.raw.technology[technology].effects
 	while index <= size do
@@ -204,13 +233,14 @@ function bery0zas.functions.alter_emissions(entity, emission_table)
 
 	entity.tier = entity.tier and tostring(entity.tier) or "1"
 	entity.name = entity.name.."-"..entity.tier
+	local prototype = data.raw[entity.type] and data.raw[entity.type][entity.name]
+	if not (prototype and prototype.energy_source) then return end
 
 	log("new pollution: "..entity.name.." - "..emission_table.pollution * tonumber(entity.tier))
 	if emission_table.energy_usage then log("new energy_usage: "..entity.name.." - "..emission_table.energy_usage) end
 
 	if type(emission_table.energy_usage) == "string" then
-		data.raw[entity.type][entity.name].energy_usage = emission_table.energy_usage
+		prototype.energy_usage = emission_table.energy_usage
 	end
-	data.raw[entity.type][entity.name].energy_source.emissions_per_minute = {pollution = emission_table.pollution * tonumber(entity.tier)}
+	prototype.energy_source.emissions_per_minute = {pollution = emission_table.pollution * tonumber(entity.tier)}
 end
-

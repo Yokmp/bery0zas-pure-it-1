@@ -1,5 +1,19 @@
 
 
+local test_report_name = "bery0zas-pure-it-test-report"
+local test_report_path = "bery0zas-pure-it-updated/test-report.json"
+
+local function write_test_report()
+	if not prototypes or not prototypes.mod_data then return end
+
+	local report = prototypes.mod_data[test_report_name]
+	if not (report and report.data) then return end
+
+	local contents = helpers.table_to_json(report.data)
+	helpers.write_file(test_report_path, contents, false)
+	log("[bery0zas-test] Wrote " .. test_report_path)
+end
+
 ---reads, destroys and creates an entity
 ---@param player LuaPlayer
 ---@param entity { name: string, inner_name: string, position: MapPosition, direction: defines.direction  }
@@ -117,3 +131,6 @@ script.on_event("bery0zas-rotate-left", function(event)
   swap_entities(player, t_entity, -4)
 
 end)
+
+script.on_init(write_test_report)
+script.on_configuration_changed(write_test_report)

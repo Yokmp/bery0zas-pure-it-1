@@ -2,6 +2,14 @@ data:extend(
 {
 	{
 		type = "bool-setting",
+		name = "bery0zas-pure-it-test-mode",
+		setting_type = "startup",
+		default_value = false,
+		order = "z[test]-a[mode]",
+		hidden = true
+	},
+	{
+		type = "bool-setting",
 		name = "bery0zas-pure-it-pollutefromboxes",
 		setting_type = "startup",
 		default_value = true,

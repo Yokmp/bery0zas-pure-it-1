@@ -1,0 +1,244 @@
+{
+  "profile_groups": {
+    "all": [
+      "pure_it",
+      "pure_it_sa",
+      "pure_it_angels",
+      "pure_it_angels_full",
+      "pure_it_bobs",
+      "pure_it_bobs_full",
+      "pure_it_bob_angels",
+      "pure_it_bob_angels_full",
+      "pure_it_krastorio",
+      "pure_it_pipe_plus_sa",
+      "pure_it_utilities"
+    ]
+  },
+  "profiles": {
+    "pure_it": {
+      "label": "Pure It",
+      "mods": [
+        "bery0zas-pure-it-updated"
+      ]
+    },
+    "pure_it_sa": {
+      "label": "Pure It + DLCs",
+      "mods": [
+        "elevated-rails",
+        "quality",
+        "space-age",
+        "bery0zas-pure-it-updated"
+      ]
+    },
+    "pure_it_angels": {
+      "label": "Pure It + Angels",
+      "mods": [
+        "elevated-rails",
+        "quality",
+        "space-age",
+        "angelspetrochem",
+        "angelspetrochemgraphics",
+        "angelsrefining",
+        "angelsrefininggraphics",
+        "angelssmelting",
+        "angelssmeltinggraphics",
+        "bery0zas-pure-it-updated"
+      ]
+    },
+    "pure_it_angels_full": {
+      "label": "Pure It + Angels Full",
+      "mods": [
+        "elevated-rails",
+        "quality",
+        "space-age",
+        "angelsbioprocessing",
+        "angelsbioprocessinggraphics",
+        "angelsinfiniteores",
+        "angelspetrochem",
+        "angelspetrochemgraphics",
+        "angelsrefining",
+        "angelsrefininggraphics",
+        "angelssmelting",
+        "angelssmeltinggraphics",
+        "bery0zas-pure-it-updated"
+      ]
+    },
+    "pure_it_bobs": {
+      "label": "Pure It + Bob's",
+      "mods": [
+        "elevated-rails",
+        "quality",
+        "space-age",
+        "boblibrary",
+        "bobores",
+        "bobplates",
+        "bery0zas-pure-it-updated"
+      ]
+    },
+    "pure_it_bobs_full": {
+      "label": "Pure It + Bob's Full",
+      "mods": [
+        "elevated-rails",
+        "quality",
+        "space-age",
+        "bobassembly",
+        "bobelectronics",
+        "bobgreenhouse",
+        "boblibrary",
+        "boblogistics",
+        "bobmining",
+        "bobores",
+        "bobplates",
+        "bobpower",
+        "bery0zas-pure-it-updated"
+      ]
+    },
+    "pure_it_bob_angels": {
+      "label": "Pure It + Bob + Angels",
+      "mods": [
+        "elevated-rails",
+        "quality",
+        "space-age",
+        "angelspetrochem",
+        "angelspetrochemgraphics",
+        "angelsrefining",
+        "angelsrefininggraphics",
+        "angelssmelting",
+        "angelssmeltinggraphics",
+        "boblibrary",
+        "bobores",
+        "bobplates",
+        "bery0zas-pure-it-updated"
+      ]
+    },
+    "pure_it_bob_angels_full": {
+      "label": "Pure It + Bob + Angels Full",
+      "mods": [
+        "elevated-rails",
+        "quality",
+        "space-age",
+        "angelsbioprocessing",
+        "angelsbioprocessinggraphics",
+        "angelsinfiniteores",
+        "angelspetrochem",
+        "angelspetrochemgraphics",
+        "angelsrefining",
+        "angelsrefininggraphics",
+        "angelssmelting",
+        "angelssmeltinggraphics",
+        "bobassembly",
+        "bobelectronics",
+        "bobgreenhouse",
+        "boblibrary",
+        "boblogistics",
+        "bobmining",
+        "bobores",
+        "bobplates",
+        "bobpower",
+        "bery0zas-pure-it-updated"
+      ]
+    },
+    "pure_it_krastorio": {
+      "label": "Pure It + Krastorio",
+      "mods": [
+        "elevated-rails",
+        "quality",
+        "space-age",
+        "ChangeInserterDropLane",
+        "flib",
+        "Krastorio2",
+        "Krastorio2Assets",
+        "Krastorio2MenuSimulations",
+        "pipe_plus",
+        "bery0zas-pure-it-updated"
+      ]
+    },
+    "pure_it_pipe_plus_sa": {
+      "label": "Pure It + Pipe Plus + DLCs",
+      "mods": [
+        "elevated-rails",
+        "quality",
+        "space-age",
+        "pipe_plus",
+        "bery0zas-pure-it-updated"
+      ]
+    },
+    "pure_it_utilities": {
+      "label": "Pure It + Local Utility Mods",
+      "mods": [
+        "elevated-rails",
+        "quality",
+        "space-age",
+        "BigLight",
+        "blueprint-sandboxes",
+        "calculator-ui",
+        "ChangeInserterDropLane",
+        "CircuitHUD-V2",
+        "EditorExtensions",
+        "expandtooltip",
+        "flib",
+        "flow-config",
+        "GUI_Unifyer",
+        "mining-patch-planner",
+        "NoRespawnGun-SpaceAge",
+        "OilOutpostPlanner",
+        "pipe_plus",
+        "RateCalculator",
+        "tiered-gas-generator",
+        "trainstopnostalgia",
+        "Wood_Gasification_updated",
+        "ylib",
+        "bery0zas-pure-it-updated"
+      ]
+    },
+    "pure_it_local_all": {
+      "label": "Pure It + Local Installed Mods",
+      "mods": [
+        "elevated-rails",
+        "quality",
+        "space-age",
+        "angelsbioprocessing",
+        "angelsbioprocessinggraphics",
+        "angelsinfiniteores",
+        "angelspetrochem",
+        "angelspetrochemgraphics",
+        "angelsrefining",
+        "angelsrefininggraphics",
+        "angelssmelting",
+        "angelssmeltinggraphics",
+        "BigLight",
+        "blueprint-sandboxes",
+        "bobassembly",
+        "bobelectronics",
+        "bobgreenhouse",
+        "boblibrary",
+        "boblogistics",
+        "bobmining",
+        "bobores",
+        "bobplates",
+        "bobpower",
+        "calculator-ui",
+        "ChangeInserterDropLane",
+        "CircuitHUD-V2",
+        "EditorExtensions",
+        "expandtooltip",
+        "flib",
+        "flow-config",
+        "GUI_Unifyer",
+        "Krastorio2",
+        "Krastorio2Assets",
+        "Krastorio2MenuSimulations",
+        "mining-patch-planner",
+        "NoRespawnGun-SpaceAge",
+        "OilOutpostPlanner",
+        "pipe_plus",
+        "RateCalculator",
+        "tiered-gas-generator",
+        "trainstopnostalgia",
+        "Wood_Gasification_updated",
+        "ylib",
+        "bery0zas-pure-it-updated"
+      ]
+    }
+  }
+}

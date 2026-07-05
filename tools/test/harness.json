@@ -1,0 +1,13 @@
+{
+  "mod_name": "bery0zas-pure-it-updated",
+  "settings_mod": "bery0zas-pure-it-updated",
+  "debug_setting": "bery0zas-pure-it-test-mode",
+  "report_path": "bery0zas-pure-it-updated/test-report.json",
+  "mod_profile": "pure_it",
+  "artifacts": [
+    "test-report.json"
+  ],
+  "profiles": {
+    "default": {}
+  }
+}

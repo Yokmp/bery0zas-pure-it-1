@@ -19,24 +19,30 @@ bery0zas.pure_it.triggers["leave-halite"] = not (mods["angelspetrochem"] and set
 settings.startup["bery0zas-pure-it-leave-halite"].value
 
 function bery0zas.pure_it.add_crafting_categories()
-	table.insert(data.raw["character"]["character"].crafting_categories, "bery0zas-air-filtering-machine")
-	table.insert(data.raw["assembling-machine"]["assembling-machine-1"].crafting_categories, "bery0zas-air-filtering-machine")
-	table.insert(data.raw["assembling-machine"]["assembling-machine-1"].crafting_categories, "bery0zas-air-filtering-item")
-	table.insert(data.raw["assembling-machine"]["assembling-machine-2"].crafting_categories, "bery0zas-air-filtering-machine")
-	table.insert(data.raw["assembling-machine"]["assembling-machine-2"].crafting_categories, "bery0zas-air-filtering-item")
-	table.insert(data.raw["assembling-machine"]["assembling-machine-3"].crafting_categories, "bery0zas-air-filtering-machine")
-	table.insert(data.raw["assembling-machine"]["assembling-machine-3"].crafting_categories, "bery0zas-air-filtering-item")
-	table.insert(data.raw["assembling-machine"]["chemical-plant"].crafting_categories, "bery0zas-air-filtering-chemistry")
-	table.insert(data.raw["furnace"]["stone-furnace"].crafting_categories, "bery0zas-air-filtering-burning")
-	table.insert(data.raw["furnace"]["steel-furnace"].crafting_categories, "bery0zas-air-filtering-burning")
-	table.insert(data.raw["furnace"]["electric-furnace"].crafting_categories, "bery0zas-air-filtering-burning")
+	bery0zas.functions.add_crafting_category("character", "character", "bery0zas-air-filtering-machine")
+	bery0zas.functions.add_crafting_category("assembling-machine", "assembling-machine-1", "bery0zas-air-filtering-machine")
+	bery0zas.functions.add_crafting_category("assembling-machine", "assembling-machine-1", "bery0zas-air-filtering-item")
+	bery0zas.functions.add_crafting_category("assembling-machine", "assembling-machine-2", "bery0zas-air-filtering-machine")
+	bery0zas.functions.add_crafting_category("assembling-machine", "assembling-machine-2", "bery0zas-air-filtering-item")
+	bery0zas.functions.add_crafting_category("assembling-machine", "assembling-machine-3", "bery0zas-air-filtering-machine")
+	bery0zas.functions.add_crafting_category("assembling-machine", "assembling-machine-3", "bery0zas-air-filtering-item")
+	bery0zas.functions.add_crafting_category("assembling-machine", "chemical-plant", "bery0zas-air-filtering-chemistry")
+	bery0zas.functions.add_crafting_category("furnace", "stone-furnace", "bery0zas-air-filtering-burning")
+	bery0zas.functions.add_crafting_category("furnace", "steel-furnace", "bery0zas-air-filtering-burning")
+	bery0zas.functions.add_crafting_category("furnace", "electric-furnace", "bery0zas-air-filtering-burning")
 
 	if mods["angelspetrochem"] then
-		table.insert(data.raw["assembling-machine"]["angels-chemical-plant"].crafting_categories, 		"bery0zas-air-filtering-chemistry")
-		table.insert(data.raw["assembling-machine"]["angels-chemical-plant-2"].crafting_categories, 	"bery0zas-air-filtering-chemistry")
-		table.insert(data.raw["assembling-machine"]["angels-chemical-plant-3"].crafting_categories, 	"bery0zas-air-filtering-chemistry")
-		table.insert(data.raw["assembling-machine"]["angels-chemical-plant-4"].crafting_categories, 	"bery0zas-air-filtering-chemistry")
-		table.insert(data.raw["assembling-machine"]["advanced-chemical-plant"].crafting_categories, 	"bery0zas-air-filtering-chemistry")
-		table.insert(data.raw["assembling-machine"]["advanced-chemical-plant-2"].crafting_categories, "bery0zas-air-filtering-chemistry")
+		for _, name in ipairs({
+			"angels-chemical-plant",
+			"angels-chemical-plant-2",
+			"angels-chemical-plant-3",
+			"angels-chemical-plant-4",
+			"advanced-chemical-plant",
+			"advanced-chemical-plant-2",
+			"angels-advanced-chemical-plant",
+			"angels-advanced-chemical-plant-2",
+		}) do
+			bery0zas.functions.add_crafting_category("assembling-machine", name, "bery0zas-air-filtering-chemistry")
+		end
 	end
 end
