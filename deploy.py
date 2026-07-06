@@ -27,7 +27,7 @@ verbose = False     # print processed files
 # # Blacklist
 exclude = ["_release_", "_lib", "_testing.lua", "vscode", "workspace", "orig", "new",
   "_working", ".git", ".py", ".xcf", ".7z", "single", "multi", "shot_", "README.md",
-  ".vs", "lua-format", "shot-"]
+  ".vs", "lua-format", "shot-", "flow-config"]
 
 # # Get information from filesystem
 workspace = "."

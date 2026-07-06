@@ -1,6 +1,6 @@
 {
   "name": "bery0zas-pure-it-updated",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "title": "Bery0za's Pure It Updated",
   "author": "Bery0za, Yokmp",
   "contact": "bereznevtree@yandex.ru",
@@ -8,7 +8,8 @@
   "factorio_version": "2.0",
   "dependencies": [
     "base >= 2.0",
-    "? angelsrefining >= 0.12.7",
+    "? angelspetrochem >= 2.0.0",
+    "? angelsrefining >= 2.0.0",
     "? bobplates >= 2.0.2",
     "? space-age"
   ],
