@@ -21,7 +21,7 @@ end
 local function swap_entities(player, entity, rotation)
 
   if not player.selected then game.print("no selection") return end
-  local old_position, quality = player.selected.position, player.selected.quality
+  local old_position, quality = player.selected.position, player.selected.quality -- or nil
   local surface = player.selected.surface.name
 	local old_direction = entity.direction
 
