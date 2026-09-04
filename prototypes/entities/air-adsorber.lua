@@ -53,7 +53,6 @@ bery0zas.pure_it.entities.air_adsorber =
 			emissions_per_minute = { pollution = 6 }
 		},
 
-		module_specification = { module_slots = 2 },
 		allowed_effects = { "consumption", "speed" },
 		icons = {
 			{ icon = "__bery0zas-pure-it-updated__/graphics/icons/adsorber.png", icon_size = 64},
@@ -192,7 +191,6 @@ bery0zas.pure_it.entities.air_adsorber =
 			sound = { { filename = "__base__/sound/electric-furnace.ogg", volume = 0.7 },
 								{ filename = "__base__/sound/chemical-plant-1.ogg", volume = 0.5 } },
 			idle_sound = { filename = "__base__/sound/idle1.ogg", volume = 0.6 },
-			apparent_volume = 1.5,
 		}
 	},
 

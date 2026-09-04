@@ -25,6 +25,22 @@ data:extend(
 		maximum_value = 1000,
 		order = "a[repollute]-b[amount]"
 	},
+	{
+		type = "bool-setting",
+		name = "bery0zas-pure-it-clean-pollution-runtime",
+		setting_type = "startup",
+		default_value = false,
+		order = "a[repollute]-c[clean-runtime]"
+	},
+	{
+		type = "int-setting",
+		name = "bery0zas-pure-it-clean-pollution-interval",
+		setting_type = "startup",
+		default_value = 3,
+		minimum_value = 1,
+		maximum_value = 60,
+		order = "a[repollute]-d[clean-interval]"
+	},
 })
 
 if mods['bobplates'] then

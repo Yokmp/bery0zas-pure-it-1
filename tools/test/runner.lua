@@ -60,6 +60,8 @@ function runner.run(profile)
 			mods = mods,
 			settings = {
 				collected_pollution = settings.startup["bery0zas-pure-it-amountofcollectedpollution"].value,
+				clean_pollution_runtime = settings.startup["bery0zas-pure-it-clean-pollution-runtime"] and settings.startup["bery0zas-pure-it-clean-pollution-runtime"].value,
+				clean_pollution_interval = settings.startup["bery0zas-pure-it-clean-pollution-interval"] and settings.startup["bery0zas-pure-it-clean-pollution-interval"].value,
 				integrate_bobs = settings.startup["bery0zas-pure-it-integrate-bobs"] and settings.startup["bery0zas-pure-it-integrate-bobs"].value,
 				integrate_angelspetrochem = settings.startup["bery0zas-pure-it-integrate-angelspetrochem"] and settings.startup["bery0zas-pure-it-integrate-angelspetrochem"].value,
 			}
@@ -85,6 +87,10 @@ function runner.run(profile)
 
 	add_case("settings.test-mode", "hidden startup setting enables the data-stage test report",
 		settings.startup["bery0zas-pure-it-test-mode"] and settings.startup["bery0zas-pure-it-test-mode"].value == true)
+	add_case("settings.runtime-pollution-cleaning", "runtime pollution cleaning is an explicit opt-in setting",
+		settings.startup["bery0zas-pure-it-clean-pollution-runtime"] and
+			settings.startup["bery0zas-pure-it-clean-pollution-runtime"].value == false and
+			settings.startup["bery0zas-pure-it-clean-pollution-interval"] ~= nil)
 
 	for _, category in ipairs(bery0zas.pure_it.recipe_categories or {}) do
 		add_case("category." .. category, category .. " recipe category exists",

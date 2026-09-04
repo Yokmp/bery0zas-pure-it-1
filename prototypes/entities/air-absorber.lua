@@ -248,7 +248,6 @@ bery0zas.pure_it.entities.air_absorber =
 		{
 			sound = { { filename = "__base__/sound/heat-exchanger.ogg", volume = 0.7 } },
 			idle_sound = { filename = "__base__/sound/idle1.ogg", volume = 0.6 },
-			apparent_volume = 1.5,
 		}
 	},
 

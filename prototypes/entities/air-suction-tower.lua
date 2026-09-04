@@ -52,11 +52,9 @@ bery0zas.pure_it.entities.air_suction_tower =
       emissions_per_minute = { pollution = -50 }
 		},
 
-		module_specification = { module_slots = 2 },
 		allowed_effects = { "consumption", "speed" },
 		integration_patch_render_layer = "higher-object-above",
 		--match_animation_speed_to_activity = true,			
-		always_draw_idle_animation = true,
 		graphics_set =
     {
 			animation_progress = 0.5,
@@ -235,7 +233,6 @@ bery0zas.pure_it.entities.air_suction_tower =
 		{
 			sound = { { filename = "__base__/sound/electric-furnace.ogg", volume = 0.7 } },
 			idle_sound = { filename = "__base__/sound/idle1.ogg", volume = 0.6 },
-			apparent_volume = 1.5,
 		}
 	},
 

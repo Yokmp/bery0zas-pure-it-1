@@ -208,7 +208,6 @@ bery0zas.pure_it.entities.sparging_column =
 		{
 			sound = { { filename = "__base__/sound/chemical-plant-3.ogg", volume = 0.7 } },
 			idle_sound = { filename = "__base__/sound/idle1.ogg", volume = 0.6 },
-			apparent_volume = 1.5,
 		},
 	},
 
