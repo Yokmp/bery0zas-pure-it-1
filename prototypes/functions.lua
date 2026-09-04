@@ -93,6 +93,13 @@ bery0zas.functions.badge_icons = {
 	}
 }
 
+local function add_assembling_machine_circuit_connector(prototype)
+	if prototype.type ~= "assembling-machine" then return end
+
+	prototype.circuit_wire_max_distance = assembling_machine_circuit_wire_max_distance
+	prototype.circuit_connector = circuit_connector_definitions["assembling-machine"]
+end
+
 function bery0zas.functions.with_badges(icons, ...)
 	local result = util.table.deepcopy(icons or {})
 	for _, badge in ipairs({...}) do
@@ -145,6 +152,7 @@ log("New entity: "..template.name)
 		end
 
 		proto.energy_usage = template.energy_usage * proto.crafting_speed .. template.energy_units
+		add_assembling_machine_circuit_connector(proto)
 
 		local item = util.table.deepcopy(template.item)
 		item.name = proto.name

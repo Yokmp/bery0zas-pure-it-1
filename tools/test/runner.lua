@@ -201,6 +201,13 @@ function runner.run(profile)
 					recipe.results and recipe.results[1] and recipe.results[1].name == name,
 				nil,
 				{ place_result = item and item.place_result, minable = prototype and prototype.minable, results = recipe and recipe.results })
+			add_case("entity." .. name .. ".circuit-connector", name .. " has circuit wire connectors",
+				prototype and prototype.circuit_connector ~= nil and prototype.circuit_wire_max_distance ~= nil,
+				nil,
+				{
+					circuit_connector = prototype and prototype.circuit_connector,
+					circuit_wire_max_distance = prototype and prototype.circuit_wire_max_distance,
+				})
 		end
 	end
 

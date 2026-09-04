@@ -1,7 +1,8 @@
-
-
+--#region debug
 local test_report_name = "bery0zas-pure-it-test-report"
 local test_report_path = "bery0zas-pure-it-updated/test-report.json"
+--#endregion debug
+
 local chunk_size = 32
 local pollution_cleaning_entities = {
 	["bery0zas-air-suction-tower-1"] = 1,
@@ -9,6 +10,7 @@ local pollution_cleaning_entities = {
 	["bery0zas-air-suction-tower-3"] = 3,
 }
 
+--#region debug
 local function write_test_report()
 	if not prototypes or not prototypes.mod_data then return end
 
@@ -19,6 +21,7 @@ local function write_test_report()
 	helpers.write_file(test_report_path, contents, false)
 	log("[bery0zas-test] Wrote " .. test_report_path)
 end
+--#endregion debug
 
 local function runtime_pollution_cleaning_enabled()
 	local setting = settings.startup["bery0zas-pure-it-clean-pollution-runtime"]
@@ -127,7 +130,9 @@ local function register_pollution_cleaning_tick()
 end
 
 local function on_init()
+	--#region debug
 	write_test_report()
+	--#endregion debug
 	rebuild_pollution_cleaners()
 	register_pollution_cleaning_tick()
 end
@@ -137,9 +142,54 @@ local function on_load()
 end
 
 local function on_configuration_changed()
+	--#region debug
 	write_test_report()
+	--#endregion debug
 	rebuild_pollution_cleaners()
 	register_pollution_cleaning_tick()
+end
+
+local circuit_wire_connector_ids = {
+	defines.wire_connector_id.circuit_red,
+	defines.wire_connector_id.circuit_green,
+}
+
+local function save_circuit_wire_connections(entity)
+	local saved = {}
+	if not (entity and entity.valid and entity.get_wire_connector) then return saved end
+
+	for _, connector_id in ipairs(circuit_wire_connector_ids) do
+		local connector = entity.get_wire_connector(connector_id, false)
+		if connector then
+			local connections = {}
+			for _, connection in ipairs(connector.real_connections or {}) do
+				if connection.target and connection.target.valid then
+					table.insert(connections, {
+						target = connection.target,
+						origin = connection.origin,
+					})
+				end
+			end
+			saved[connector_id] = connections
+		end
+	end
+
+	return saved
+end
+
+local function restore_circuit_wire_connections(entity, saved)
+	if not (entity and entity.valid and entity.get_wire_connector) then return end
+
+	for connector_id, connections in pairs(saved or {}) do
+		local connector = entity.get_wire_connector(connector_id, true)
+		if connector then
+			for _, connection in ipairs(connections) do
+				if connection.target and connection.target.valid then
+					connector.connect_to(connection.target, false, connection.origin)
+				end
+			end
+		end
+	end
 end
 
 ---reads, destroys and creates an entity
@@ -149,8 +199,10 @@ end
 local function swap_entities(player, entity, rotation)
 
   if not player.selected then game.print("no selection") return end
-  local old_position, quality = player.selected.position, player.selected.quality -- or nil
-  local surface = player.selected.surface.name
+	local selected = player.selected
+  local old_position, quality = selected.position, selected.quality -- or nil
+  local surface = selected.surface.name
+	local wire_connections = save_circuit_wire_connections(selected)
 	local old_direction = entity.direction
 
 	entity.direction = entity.direction + rotation
@@ -160,7 +212,7 @@ local function swap_entities(player, entity, rotation)
 		entity.direction = defines.direction.west --[[@as defines.direction]]
 	end
 
-  if player.selected.destroy({player = player}) then -- or die(force?, cause?)
+  if selected.destroy({player = player}) then -- or die(force?, cause?)
 		if not game.surfaces[surface].can_place_entity({
 			name        			= entity.name,
       inner_name  			= entity.inner_name,
@@ -181,7 +233,7 @@ local function swap_entities(player, entity, rotation)
 		else
 			game.surfaces[surface].play_sound({path="utility/rotated_huge", position=old_position})
 		end
-    game.surfaces[surface].create_entity{
+    local new_entity = game.surfaces[surface].create_entity{
       name        = entity.name,
       inner_name  = entity.inner_name,
       position    = entity.position,
@@ -190,6 +242,7 @@ local function swap_entities(player, entity, rotation)
       quality     = quality,
       create_build_effect_smoke = false,
     }
+		restore_circuit_wire_connections(new_entity, wire_connections)
   end
 end
 
@@ -246,6 +299,7 @@ script.on_event("bery0zas-rotate-left", function(event)
 
   local player = game.players[event.player_index] ---@diagnostic disable-line
   if not player.selected or not player.selected.name:match("bery0zas") then return end
+	if player.cursor_stack then return end
 	local entity = player.selected or {}
 
 	local t_entity = {

@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.2.0
+Date: 04.09.2026
+  Changes:
+    - restructured files/code
+    - wire connections
+    - new badges and tier icons (thanks to https://mods.factorio.com/user/Hoochie)
+  Features:
+    - Option to switch between vanilla and scripted pollution handling
+---------------------------------------------------------------------------------------------------
 Version: 2.1.0
 Date: 06.07.2026
   Changes:

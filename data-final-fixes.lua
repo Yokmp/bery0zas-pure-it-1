@@ -1,5 +1,6 @@
 require("prototypes.final-fixes.badges")
 
+--#region debug
 local test_mode = settings.startup["bery0zas-pure-it-test-mode"]
 
 if test_mode and test_mode.value then
@@ -24,3 +25,4 @@ if test_mode and test_mode.value then
 		}
 	})
 end
+--#endregion debug
