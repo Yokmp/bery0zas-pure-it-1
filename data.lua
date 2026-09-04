@@ -16,6 +16,7 @@ require("prototypes.fluid")
 require("prototypes.entity")
 require("prototypes.recipe")
 require("prototypes.technology")
+require("prototypes.inputs")
 
 bery0zas.functions.register_recipe_categories(bery0zas.pure_it.recipe_categories)
 bery0zas.pure_it.add_crafting_categories()
@@ -24,17 +25,3 @@ bery0zas.pure_it.integration = {}
 
 if bery0zas.pure_it.triggers["integrate-bobplates"] then require("prototypes.integration.bobplates") end
 if bery0zas.pure_it.triggers["integrate-angelspetrochem"] then require("prototypes.integration.angelspetrochem") end
-
-local inputs = {
-  {"R",         "bery0zas-rotate-right",      "rotate"},
-  {"SHIFT + R", "bery0zas-rotate-left",       "reverse-rotate"},
-  }
-
-
-for i,v in ipairs(inputs) do
-  data:extend{{
-      type = "custom-input",
-      name = v[2],
-      key_sequence = v[1],
-    }}
-end

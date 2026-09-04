@@ -83,6 +83,26 @@ function bery0zas.functions.add_crafting_category(prototype_type, prototype_name
 	return true
 end
 
+bery0zas.functions.badge_icons = {
+	air_cleaning = "__bery0zas-pure-it-updated__/graphics/icons/badge/icon-air-cleaning.png",
+	recycling = "__bery0zas-pure-it-updated__/graphics/icons/badge/recycling-badge.png",
+	tier = {
+		[1] = "__bery0zas-pure-it-updated__/graphics/icons/badge/tier-mk1.png",
+		[2] = "__bery0zas-pure-it-updated__/graphics/icons/badge/tier-mk2.png",
+		[3] = "__bery0zas-pure-it-updated__/graphics/icons/badge/tier-mk3.png",
+	}
+}
+
+function bery0zas.functions.with_badges(icons, ...)
+	local result = util.table.deepcopy(icons or {})
+	for _, badge in ipairs({...}) do
+		if badge then
+			table.insert(result, { icon = badge, icon_size = 64 })
+		end
+	end
+	return result
+end
+
 
 ---comment
 ---@param template PureIt.Template
@@ -118,6 +138,10 @@ log("New entity: "..template.name)
 			for _, v in pairs(proto.graphics_set.animation) do
 				v.layers[1].tint = color_tint -- east layer
 			end
+		end
+
+		if (num_tiers > 1) then
+			proto.icons = bery0zas.functions.with_badges(proto.icons, bery0zas.functions.badge_icons.tier[i])
 		end
 
 		proto.energy_usage = template.energy_usage * proto.crafting_speed .. template.energy_units

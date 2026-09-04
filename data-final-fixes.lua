@@ -1,3 +1,5 @@
+require("prototypes.final-fixes.badges")
+
 local test_mode = settings.startup["bery0zas-pure-it-test-mode"]
 
 if test_mode and test_mode.value then

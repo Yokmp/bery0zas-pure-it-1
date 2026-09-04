@@ -255,7 +255,8 @@ bery0zas.pure_it.entities.air_absorber =
 	{
 		type = "item",
 		icons = { { icon = "__bery0zas-pure-it-updated__/graphics/icons/absorber.png", icon_size = 64} },
-		subgroup = "production-machine",
+		subgroup = "bery0zas-air-purifiers",
+		order = "b[air-absorber]",
 		stack_size = 25
 	},
 

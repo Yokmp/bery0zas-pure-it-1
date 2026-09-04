@@ -10,7 +10,7 @@ local oxygen_gas_name = data.raw.fluid["angels-gas-oxygen"] and "angels-gas-oxyg
 local sodium_hydroxide_item_name = data.raw.item["angels-solid-sodium-hydroxide"] and "angels-solid-sodium-hydroxide" or "solid-sodium-hydroxide"
 local sodium_hydroxide_fluid_name = data.raw.fluid["angels-liquid-aqueous-sodium-hydroxide"] and "angels-liquid-aqueous-sodium-hydroxide" or "liquid-aqueous-sodium-hydroxide"
 local liquifying_category = data.raw["recipe-category"]["angels-liquifying"] and "angels-liquifying" or "liquifying"
-local petrochem_subgroup = data.raw["item-subgroup"]["angels-petrochem-sodium"] and "angels-petrochem-sodium" or "fluid-recipes"
+local petrochem_subgroup = "bery0zas-air-filter-fluids"
 
 local function angels_liquid_icon(icon_function_name, tints)
 	if angelsmods and angelsmods.functions and angelsmods.functions[icon_function_name] then
@@ -98,7 +98,10 @@ data:extend({
 		base_color = { r = 0.62, g = 0.7, b = 0.95 },
 		flow_color = { r = 0.62, g = 0.7, b = 0.95 },
 		--create_viscous_liquid_fluid_icon(molecule_icon, tints)
-		icons = angels_liquid_icon("create_viscous_liquid_fluid_icon", {{094, 114, 174}, {198, 011, 011}}),
+		icons = bery0zas.functions.with_badges(
+			angels_liquid_icon("create_viscous_liquid_fluid_icon", {{094, 114, 174}, {198, 011, 011}}),
+			bery0zas.functions.badge_icons.air_cleaning
+		),
 		auto_barrel = false
 	},
 })
@@ -117,7 +120,10 @@ data:extend({
 			{ type = "fluid", name = oxygen_gas_name, amount = 200 }
 		},
 		--create_liquid_recipe_icon(bot_molecules_icon, tints, top_molecules_icon)
-		icons = angels_liquid_icon("create_liquid_recipe_icon", {{249, 013, 013}, {094, 114, 174}, {088, 101, 155}}),
+		icons = bery0zas.functions.with_badges(
+			angels_liquid_icon("create_liquid_recipe_icon", {{249, 013, 013}, {094, 114, 174}, {088, 101, 155}}),
+			bery0zas.functions.badge_icons.air_cleaning
+		),
 		subgroup = petrochem_subgroup,
 		results = {{ type = "fluid", name = "bery0zas-oxygen-solution", amount = 20 }},
 		order = "l[oxygen-solution]-a[generation]",
@@ -134,7 +140,10 @@ data:extend({
 			{ type = "fluid", name = purified_water_name, amount = 50 },
 			{ type = "item", name = sodium_hydroxide_item_name, amount = 1 }
 		},
-		icons = angels_liquid_icon("create_liquid_recipe_icon", {{151, 212, 255}, {255, 255, 255}, {255, 255, 255}}),
+		icons = bery0zas.functions.with_badges(
+			angels_liquid_icon("create_liquid_recipe_icon", {{151, 212, 255}, {255, 255, 255}, {255, 255, 255}}),
+			bery0zas.functions.badge_icons.air_cleaning
+		),
 		subgroup = petrochem_subgroup,
 		results = {{ type = "fluid", name = sodium_hydroxide_fluid_name, amount = 50 }},
 		order = "k[liquid-sodium-hydroxide]-b[hydroxide]",
@@ -151,8 +160,13 @@ data:extend({
 			{ type = "item", name = filter_coal_name, amount = 3 },
 			{ type = "fluid", name = "bery0zas-polluted-air", amount = 4, fluidbox_index = 2 }
 		},
-		icons = item_icon(filter_coal_name),
-		subgroup = "terrain",
+		icons = bery0zas.functions.with_badges(
+			item_icon(filter_coal_name),
+			bery0zas.functions.badge_icons.air_cleaning,
+			bery0zas.functions.badge_icons.recycling
+		),
+		subgroup = "bery0zas-air-filter-recipes",
+		order = "c[absorption]-a[water]",
 		results =
 		{
 			{ type = "item", name = filter_frame_name, amount = 3 }

@@ -215,7 +215,8 @@ bery0zas.pure_it.entities.sparging_column =
 	{
 		type = "item",
 		icons = { { icon = "__bery0zas-pure-it-updated__/graphics/icons/sparging-column.png", icon_size = 64,} },
-		subgroup = "production-machine",
+		subgroup = "bery0zas-air-purifiers",
+		order = "d[sparging-column]",
 		stack_size = 25
 	},
 

@@ -31,6 +31,13 @@ local function ingredient_named(recipe_name, ingredient_name)
 	return nil
 end
 
+local function prototype_has_icon(prototype, icon_path)
+	for _, icon in ipairs((prototype and prototype.icons) or {}) do
+		if icon.icon == icon_path then return true end
+	end
+	return false
+end
+
 local function angel_mineralized_water_name()
 	if data.raw.fluid["angels-water-mineralized"] then return "angels-water-mineralized" end
 	return "water-mineralized"
@@ -91,11 +98,43 @@ function runner.run(profile)
 		settings.startup["bery0zas-pure-it-clean-pollution-runtime"] and
 			settings.startup["bery0zas-pure-it-clean-pollution-runtime"].value == false and
 			settings.startup["bery0zas-pure-it-clean-pollution-interval"] ~= nil)
+	add_case("group.air-recycling", "Pure It item group exists",
+		data.raw["item-group"]["bery0zas-air-recycling"] ~= nil)
+	for _, subgroup_name in ipairs({
+		"bery0zas-air-purifiers",
+		"bery0zas-air-filter-materials",
+		"bery0zas-air-filter-components",
+		"bery0zas-air-filter-fluids",
+		"bery0zas-air-filter-recipes",
+	}) do
+		add_case("subgroup." .. subgroup_name, subgroup_name .. " item subgroup exists",
+			data.raw["item-subgroup"][subgroup_name] ~= nil and
+				data.raw["item-subgroup"][subgroup_name].group == "bery0zas-air-recycling")
+	end
 
 	for _, category in ipairs(bery0zas.pure_it.recipe_categories or {}) do
 		add_case("category." .. category, category .. " recipe category exists",
 			data.raw["recipe-category"][category] ~= nil)
 	end
+
+	add_case("icons.badge.air-cleaning", "air-cleaning badge is layered onto air filtering prototypes",
+		prototype_has_icon(data.raw.fluid["bery0zas-polluted-air"], bery0zas.functions.badge_icons.air_cleaning) and
+			prototype_has_icon(data.raw.recipe["bery0zas-water-absorption"], bery0zas.functions.badge_icons.air_cleaning))
+	add_case("icons.badge.recycling", "recycling badge is layered onto recycling recipes",
+		(not data.raw.recipe["bery0zas-polluted-water-recycling"] or
+			prototype_has_icon(data.raw.recipe["bery0zas-polluted-water-recycling"], bery0zas.functions.badge_icons.recycling)) and
+			(not data.raw.recipe["bery0zas-spray-surface-recycling"] or
+				prototype_has_icon(data.raw.recipe["bery0zas-spray-surface-recycling"], bery0zas.functions.badge_icons.recycling)),
+		nil,
+		{
+			polluted_water_recycling = data.raw.recipe["bery0zas-polluted-water-recycling"] and data.raw.recipe["bery0zas-polluted-water-recycling"].icons,
+			spray_surface_recycling = data.raw.recipe["bery0zas-spray-surface-recycling"] and data.raw.recipe["bery0zas-spray-surface-recycling"].icons,
+			expected = bery0zas.functions.badge_icons.recycling,
+		})
+	add_case("icons.badge.tier", "tier badges are layered onto tiered Pure It prototypes",
+		prototype_has_icon(data.raw.item["bery0zas-adsorption-coil-mk1"], bery0zas.functions.badge_icons.tier[1]) and
+			prototype_has_icon(data.raw.item["bery0zas-adsorption-coil-mk2"], bery0zas.functions.badge_icons.tier[2]) and
+			prototype_has_icon(data.raw.item["bery0zas-air-suction-tower-3"], bery0zas.functions.badge_icons.tier[3]))
 
 	add_case("input.rotate-right", "rotate-right custom input exists",
 		data.raw["custom-input"]["bery0zas-rotate-right"] ~= nil)
