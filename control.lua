@@ -1,7 +1,7 @@
 --#region debug
 local test_report_name = "bery0zas-pure-it-test-report"
 local test_report_path = "bery0zas-pure-it-updated/test-report.json"
---#endregion debug
+--#endregion
 
 local chunk_size = 32
 local pollution_cleaning_entities = {
@@ -21,7 +21,7 @@ local function write_test_report()
 	helpers.write_file(test_report_path, contents, false)
 	log("[bery0zas-test] Wrote " .. test_report_path)
 end
---#endregion debug
+--#endregion
 
 local function runtime_pollution_cleaning_enabled()
 	local setting = settings.startup["bery0zas-pure-it-clean-pollution-runtime"]
@@ -132,7 +132,7 @@ end
 local function on_init()
 	--#region debug
 	write_test_report()
-	--#endregion debug
+	--#endregion
 	rebuild_pollution_cleaners()
 	register_pollution_cleaning_tick()
 end
@@ -144,7 +144,7 @@ end
 local function on_configuration_changed()
 	--#region debug
 	write_test_report()
-	--#endregion debug
+	--#endregion
 	rebuild_pollution_cleaners()
 	register_pollution_cleaning_tick()
 end
@@ -192,6 +192,19 @@ local function restore_circuit_wire_connections(entity, saved)
 	end
 end
 
+local function save_recipe(entity)
+	if not (entity and entity.valid and entity.get_recipe) then return nil end
+
+	local recipe = entity.get_recipe()
+	return recipe and recipe.name or nil
+end
+
+local function restore_recipe(entity, recipe_name)
+	if not (entity and entity.valid and recipe_name and entity.set_recipe) then return end
+
+	entity.set_recipe(recipe_name)
+end
+
 ---reads, destroys and creates an entity
 ---@param player LuaPlayer
 ---@param entity { name: string, inner_name: string, position: MapPosition, direction: defines.direction  }
@@ -203,6 +216,7 @@ local function swap_entities(player, entity, rotation)
   local old_position, quality = selected.position, selected.quality -- or nil
   local surface = selected.surface.name
 	local wire_connections = save_circuit_wire_connections(selected)
+	local recipe_name = save_recipe(selected)
 	local old_direction = entity.direction
 
 	entity.direction = entity.direction + rotation
@@ -242,6 +256,7 @@ local function swap_entities(player, entity, rotation)
       quality     = quality,
       create_build_effect_smoke = false,
     }
+		restore_recipe(new_entity, recipe_name)
 		restore_circuit_wire_connections(new_entity, wire_connections)
   end
 end
@@ -279,7 +294,7 @@ script.on_event("bery0zas-rotate-right", function(event)
 
   local player = game.players[event.player_index] ---@diagnostic disable-line
   if not player.selected or not player.selected.name:match("bery0zas") then return end
-	if player.cursor_stack then return end
+	if player.cursor_stack and player.cursor_stack.valid_for_read then return end
 	local entity = player.selected or {}
 
 	local t_entity = {
@@ -299,7 +314,7 @@ script.on_event("bery0zas-rotate-left", function(event)
 
   local player = game.players[event.player_index] ---@diagnostic disable-line
   if not player.selected or not player.selected.name:match("bery0zas") then return end
-	if player.cursor_stack then return end
+	if player.cursor_stack and player.cursor_stack.valid_for_read then return end
 	local entity = player.selected or {}
 
 	local t_entity = {

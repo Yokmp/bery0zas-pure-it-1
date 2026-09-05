@@ -8,6 +8,13 @@ bery0zas.pure_it.entities.air_suction_tower =
 	energy_usage = 100,
 	energy_units = "kW",
 	factoriopedia = {position={0,-1.4}},
+	tall = true,
+	circuit_connector_offsets = {
+		north = { 4, 16, variation = 0,  },
+		east = { -52, -32, variation = 6,  },
+		south = { 0, 25, variation = 26,  },
+		west = { 56, -48, variation = 2,  },
+	},
 
 	entity =
 	{

@@ -8,6 +8,12 @@ bery0zas.pure_it.entities.air_absorber =
 	energy_usage = 80,
 	energy_units = "kW",
 	factoriopedia = {position = {0,0}, zoom = 1.8},
+	circuit_connector_offsets = {
+		north = { 48, 16,  variation = 31, },
+		east = { -16, 25,  variation = 26, },
+		south = { -48, 16,  variation = 24, },
+		west = { 16, 25,  variation = 26, },
+	},
 
 	entity =
 	{

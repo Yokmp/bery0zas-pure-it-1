@@ -93,11 +93,42 @@ bery0zas.functions.badge_icons = {
 	}
 }
 
-local function add_assembling_machine_circuit_connector(prototype)
+local function make_circuit_connector_definition(offsets)
+	local function direction(definition)
+		local shadow = definition.shadow or { definition[1] + 11, definition[2] + 6 }
+		return {
+			variation = definition.variation or 18,
+			main_offset = util.by_pixel(definition[1], definition[2]),
+			shadow_offset = util.by_pixel(shadow[1], shadow[2]),
+			show_shadow = definition.show_shadow ~= false,
+		}
+	end
+
+	return circuit_connector_definitions.create_vector(
+		universal_connector_template,
+		{
+			direction(offsets.north),
+			direction(offsets.east),
+			direction(offsets.south),
+			direction(offsets.west),
+		}
+	)
+end
+
+local function add_assembling_machine_circuit_connector(prototype, template)
 	if prototype.type ~= "assembling-machine" then return end
 
 	prototype.circuit_wire_max_distance = assembling_machine_circuit_wire_max_distance
-	prototype.circuit_connector = circuit_connector_definitions["assembling-machine"]
+	prototype.circuit_connector = template.circuit_connector_offsets
+		and make_circuit_connector_definition(template.circuit_connector_offsets)
+		or circuit_connector_definitions["assembling-machine"]
+end
+
+local function supports_tall_entities()
+	local major, minor = (mods["base"] or "0.0"):match("^(%d+)%.(%d+)")
+	major = tonumber(major) or 0
+	minor = tonumber(minor) or 0
+	return major > 2 or (major == 2 and minor >= 1)
 end
 
 function bery0zas.functions.with_badges(icons, ...)
@@ -152,7 +183,10 @@ log("New entity: "..template.name)
 		end
 
 		proto.energy_usage = template.energy_usage * proto.crafting_speed .. template.energy_units
-		add_assembling_machine_circuit_connector(proto)
+		add_assembling_machine_circuit_connector(proto, template)
+		if template.tall and supports_tall_entities() then
+			proto.tall = true
+		end
 
 		local item = util.table.deepcopy(template.item)
 		item.name = proto.name

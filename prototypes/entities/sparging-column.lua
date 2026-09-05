@@ -8,6 +8,13 @@ bery0zas.pure_it.entities.sparging_column =
 	energy_usage = 100,
 	energy_units = "kW",
 	factoriopedia = {position = {0,-2.4}, direction = 0},
+	tall = true,
+	circuit_connector_offsets = {
+		north = { 0, 15, variation = 26,  },
+		east = { 0, 25, variation = 26,  },
+		south = { 0, 15, variation = 26,  },
+		west = { 0, 25, variation = 26,  },
+	},
 
 	entity =
 	{
