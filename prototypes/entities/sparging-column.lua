@@ -230,7 +230,7 @@ bery0zas.pure_it.entities.sparging_column =
 	recipe =
 	{
 		type = "recipe",
-		category = "bery0zas-air-filtering-machine",
+		categories = {"bery0zas-air-filtering-machine"},
 		enabled = false,
 		energy_required = 10.0,
 		ingredients =

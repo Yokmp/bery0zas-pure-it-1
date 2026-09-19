@@ -8,6 +8,7 @@ bery0zas.pure_it.entities.air_adsorber =
 	energy_usage = 200,
 	energy_units = "kW",
 	factoriopedia = {position = {0,-1}, zoom = 1.4, direction = 12},
+	tall = true,
 	circuit_connector_offsets = {
 		north = { 20,-16,  variation = 27, },
 		east = { -12, -16,  variation = 30, },
@@ -212,7 +213,7 @@ bery0zas.pure_it.entities.air_adsorber =
 	recipe =
 	{
 		type = "recipe",
-		category = "bery0zas-air-filtering-machine",
+		categories = {"bery0zas-air-filtering-machine"},
 		enabled = false,
 		energy_required = 20.0,
 		ingredients =

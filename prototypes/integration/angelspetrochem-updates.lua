@@ -9,7 +9,7 @@ function bery0zas.pure_it.integration.angelspetrochem.halite_recipe(ore_number)
 		local recipe = data.raw.recipe[entry.name]
 		if recipe then
 			recipe.results = recipe.results or {}
-			table.insert(recipe.results, { type = "item", name = "bery0zas-halite", probability = entry.probability, amount = 1 })
+			table.insert(recipe.results, { type = "item", name = "bery0zas-halite", independent_probability = entry.probability, amount = 1 })
 		end
 	end
 end

@@ -112,7 +112,7 @@ data:extend({
 		type = "recipe",
 		name = "bery0zas-oxygen-solution",
 		energy_required = 10,
-		category = "bery0zas-air-filtering-sparging",
+		categories = { "bery0zas-air-filtering-sparging" },
 		enabled = false,
 		ingredients =
 		{
@@ -133,7 +133,7 @@ data:extend({
 		type = "recipe",
 		name = "bery0zas-sodium-hydroxide-solution",
 		energy_required = 10,
-		category = "bery0zas-air-filtering-sparging",
+		categories = { "bery0zas-air-filtering-sparging" },
 		enabled = false,
 		ingredients =
 		{
@@ -153,7 +153,7 @@ data:extend({
 		type = "recipe",
 		name = "bery0zas-coal-filter-adsorption",
 		energy_required = 30,
-		category = "bery0zas-air-filtering-adsorption",
+		categories = { "bery0zas-air-filtering-adsorption" },
 		enabled = false,
 		ingredients =
 		{
@@ -181,7 +181,7 @@ if bery0zas.pure_it.triggers["leave-halite"] then
 			type = "recipe",
 			name = "bery0zas-solid-sodium-hydroxide",
 			energy_required = 10,
-			category = liquifying_category,
+			categories = { liquifying_category },
 			enabled = false,
 			ingredients = {
 				{ type = "item", name = "bery0zas-halite", amount = 5 },

@@ -1,17 +1,17 @@
 {
   "name": "bery0zas-pure-it-updated",
-  "version": "2.2.1",
+  "version": "2.3.0",
   "title": "Bery0za's Pure It Updated",
   "author": "Bery0za, Yokmp, Hoochie",
   "contact": "bereznevtree@yandex.ru",
   "homepage": "https://github.com/Yokmp/bery0zas-pure-it-1/tree/master",
-  "factorio_version": "2.0",
+  "factorio_version": "2.1",
   "dependencies": [
-    "base >= 2.0",
+    "base >= 2.1",
     "? angelspetrochem >= 2.0.0",
     "? angelsrefining >= 2.0.0",
     "? bobplates >= 2.0.2",
     "? space-age"
   ],
-  "description": "Real world air filtering for 2.0!"
+  "description": "Real world air filtering for 2.1!"
 }

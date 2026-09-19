@@ -269,7 +269,7 @@ bery0zas.pure_it.entities.air_absorber =
 	recipe =
 	{
 		type = "recipe",
-		category = "bery0zas-air-filtering-machine",
+		categories = {"bery0zas-air-filtering-machine"},
 		enabled = false,
 		energy_required = 20.0,
 		ingredients =

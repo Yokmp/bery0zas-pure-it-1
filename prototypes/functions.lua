@@ -159,7 +159,7 @@ log("New entity: "..template.name)
 		proto.minable.result = proto.name
 
 		if (num_tiers > 1 ) then
-			proto.next_upgrade = (i < num_tiers) and name .. "-" .. tostring(i + 1) or ""
+			proto.next_upgrade = (i < num_tiers) and name .. "-" .. tostring(i + 1) or nil
 			proto.localised_name[3] = " MK"..tostring(i)
 			proto.energy_source.emissions_per_minute.pollution = proto.energy_source.emissions_per_minute.pollution * i
 		end

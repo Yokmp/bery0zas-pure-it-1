@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.3.0
+Date: 19.09.2026
+  Changes:
+    - factorio 2.1 update
+  Features:
+    - adsorber, suction tower and sparging column now have the new tall key
+---------------------------------------------------------------------------------------------------
 Version: 2.2.1
 Date: 04.09.2026
   Changes:
@@ -43,7 +50,7 @@ Date: 01.06.2025
 ---------------------------------------------------------------------------------------------------
 Version: 0.3.1
 Date: 23.06.2021
-  Optimisations:
+  Optimizations:
     - Renewed entities update scheme, slightly better UPS
   Locale:
     - German localization (thanks Yokmp - https://github.com/Yokmp)
@@ -61,7 +68,7 @@ Date: 7.03.2021
     - Added integration with Angel's Petrochemical Processing
   Features:
     - Options to enable/disable mod integration
-  Optimisations:
+  Optimizations:
     - Renewed file structure
     - Renewed prototype stage
   Balancing:
